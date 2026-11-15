@@ -18,7 +18,7 @@ As a caller, I restart the service, so that queued jobs still run and a half-run
 ## Functional Requirements
 - Every state change commits before the call returns, so a new `JobStore` on the same file reads each job.
 - `recover()` sets every `running` job back to `queued`, clears `started_at`, and returns the number of jobs it changed.
-- `Worker.start()` calls `recover()` once, before its thread claims a job.
+- `Worker.start()` calls `recover()` once, before its thread claims a job. `start_workers` calls `recover()` once for all workers, and starts each worker with `recover=False`, so a second worker never requeues the job of the first.
 
 ## Acceptance Criteria
 - [ ] AC-1: Jobs persist

@@ -85,3 +85,9 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Parallel task batches | `0` |
 | Notes | none |
 - In progress: U1-store (2026-11-15T23:57:57Z)
+- RED: U1-store (2026-11-15T23:59:02Z)
+- GREEN: U1-store (2026-11-15T23:59:02Z)
+- Done: U1-store (content, inline, none, 2026-11-15T23:59:02Z)
+- Tests run: REQ-001, REQ-002, REQ-004: src/stem-service/tests/test_jobs.py (2026-11-15T23:59:02Z)
+- Rework: REQ-004: the import check ran a subprocess with no PYTHONPATH, so it failed on the import and not on the assertion. The test now sets PYTHONPATH (2026-11-15T23:59:02Z)
+- In progress: U2-worker (2026-11-15T23:59:02Z)

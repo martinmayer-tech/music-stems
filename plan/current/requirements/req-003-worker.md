@@ -16,7 +16,7 @@ version: "0.1.0"
 As a caller, I queue two jobs, so that they run one after the other and never overlap.
 
 ## Functional Requirements
-- `Worker(store, data_dir=None, separator_factory=None, split_func=split)` owns one thread. `start()` starts it and `stop()` ends it after the current job.
+- `Worker(store, data_dir=None, separator_factory=None, split_func=split)` owns one thread. `start(recover=True)` starts it and `stop()` ends it after the current job.
 - The thread claims one job and calls `split_func` with the job's input path, a per-job folder under `{data_dir}/jobs/{id}`, and the `full_stems` flag. It then claims the next.
 - The thread marks a job `done` with the returned paths. If `split_func` raises, it marks the job `failed` with one error line and goes on.
 - The thread waits when the queue is empty. It wakes after a poll interval or when `wake()` runs.
