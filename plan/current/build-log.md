@@ -119,6 +119,20 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Docs edit pass: prose-check exit 0 on cycle 1, no subagent dispatched (2026-11-15T21:57:38Z)
 - Complete: P3 (2026-11-15T21:57:38Z)
 
+### P4: Ship
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T21:57:48Z` |
+| End | `` |
+| Wall clock | `` |
+| Model tier | primary |
+| Skills loaded | ravintio-ship |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+
 ---
 
 ## Summary (filled at ship, P4)
