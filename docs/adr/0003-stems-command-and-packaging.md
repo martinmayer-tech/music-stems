@@ -1,7 +1,7 @@
 ---
 title: "ADR 0003: The stems command and the stem_core package install"
 summary: "The stems command uses argparse, keeps probes injectable, and installs through a console script that needs stem_core packaged."
-status: "proposed"
+status: "accepted"
 component: "stem-core"
 version: "0.3.0"
 ---
