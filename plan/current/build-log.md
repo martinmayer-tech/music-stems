@@ -92,3 +92,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Done: U1-core (content, inline, none, 2026-11-15T22:04:43Z)
 - Tests run: REQ-001, REQ-002: src/stem-core/tests/test_separation.py (2026-11-15T22:04:43Z)
 - In progress: U2-pin-ci (2026-11-15T22:04:43Z)
+- RED: U2-pin-ci (2026-11-15T22:04:43Z)
+- GREEN: U2-pin-ci (2026-11-15T22:04:57Z)
+- Done: U2-pin-ci (content, inline, none, 2026-11-15T22:04:57Z)
+- Tests run: REQ-003: src/stem-core/tests/test_pin_ci.py, src/stem-core/tests/test_ci_job.py (2026-11-15T22:04:57Z)
+- In progress: U3-smoke (2026-11-15T22:04:57Z)

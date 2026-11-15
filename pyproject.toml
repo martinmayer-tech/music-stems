@@ -13,6 +13,8 @@ requires-python = ">=3.10"
 
 [project.optional-dependencies]
 dev = ["pytest", "ruff"]
+# The CPU build of the separation engine, at one exact version.
+separation = ["audio-separator[cpu]==0.48.0"]
 
 [tool.setuptools]
 packages = []
@@ -20,8 +22,8 @@ packages = []
 [tool.pytest.ini_options]
 testpaths = ["src/stem-core/tests", "src/stem-service/tests", "src/stem-web/tests"]
 pythonpath = ["src/stem-core", "src/stem-service", "src/stem-web"]
-addopts = "--import-mode=importlib"
-markers = ["slow: a test that needs a real model, excluded from CI"]
+addopts = "--import-mode=importlib -m 'not slow'"
+markers = ["slow: a test that needs a real model, excluded from CI. Run it with -m slow"]
 
 [tool.ruff]
 line-length = 100
