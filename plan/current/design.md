@@ -35,6 +35,9 @@
 - src/stem-core/
 - src/stem-service/
 - src/stem-web/
+- pyproject.toml
+- .gitignore
+- product.yml
 - .github/workflows/
 - docs/
 - plan/

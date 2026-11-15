@@ -81,6 +81,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Parallel task batches | `0` |
 | Notes | none |
 
+- Design revised: Component Paths gained `pyproject.toml`, `.gitignore`, and `product.yml`. The files were in scope but missing from the list. [source: draft-accepted (initiative)]
+
 ---
 
 ## Summary (filled at ship, P4)
