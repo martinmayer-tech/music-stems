@@ -2,7 +2,7 @@
 
 **Feature:** Add the command-line interface
 **Version:** set by the merge queue at merge
-**PR:** pending
+**PR:** 7
 
 ## What changed
 
