@@ -132,6 +132,7 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Notes | none |
 - Complete: P4 (2026-11-15T23:44:54Z)
 - Postmortem: plan/postmortems/2026-11-15-isolated-subprocess-test.md REQ-004 (2026-11-15T23:45:11Z)
+- CI duration: 118s (run 43776548959, 2026-11-15T23:48:10Z)
 
 ---
 
