@@ -72,8 +72,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-15T20:55:42Z` |
-| End | `` |
-| Wall clock | `` |
+| End | `2026-11-15T21:36:31Z` |
+| Wall clock | `41` |
 | Model tier | primary |
 | Skills loaded | ravintio-implement |
 | Agents spawned | `0` |
@@ -94,6 +94,12 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Done: U3-ci (content, inline, none, 2026-11-15T20:57:27Z)
 - Tests run: REQ-002: src/stem-core/tests/test_ci_job.py (2026-11-15T20:57:27Z)
 - Tests run: test impact: test-0000327-req-002-ci-job.sh, test-0000390-req-003-enforcement-points.sh passed. test-0000317 and test-0000042 show failures that also appear in the P0 baseline run (2026-11-15T20:57:27Z)
+- Rework: U4-docs: test-0000042-req-010 failed on a word that the allowlist bans in the manifests, so the step removed the optional stack field (2026-11-15T21:36:31Z)
+- Tests run: full suite: 1 new failure, 56 inherited failures (2026-11-15T21:36:31Z)
+- Tests run: full suite rerun of test-0000042-req-010-pack-wording-allowlist.sh: 2 passed, 0 failed (2026-11-15T21:36:31Z)
+- Done: U4-docs (content, inline, none, 2026-11-15T21:36:31Z)
+- Departure from the concurrency plan: units ran inline in plan order. The units were small.
+- Complete: P2 (2026-11-15T21:36:31Z)
 
 ---
 

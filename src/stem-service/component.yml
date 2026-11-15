@@ -18,7 +18,6 @@ exceptions:
 stack:
   language: "python"
   runtime: "python"
-  framework: "none"
   frontend: "none"
   styling: "none"
   componentLibrary: "none"
