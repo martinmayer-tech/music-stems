@@ -1,0 +1,10 @@
+# product.yml: product-level version manifest.
+# The merge queue sets `version` when it merges an initiative step.
+
+id: "music-stems"
+name: "Music Stems"
+version: "0.0.0"
+feature: "0000001-stem-separation-service"
+versionPolicy: "explicit"
+
+components: []
