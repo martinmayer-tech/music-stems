@@ -26,8 +26,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-15T22:01:54Z` |
-| End | `pending` |
-| Wall clock | `pending` |
+| End | `2026-11-15T22:02:44Z` |
+| Wall clock | `6` |
 | Model tier | primary |
 | Skills loaded | ravintio-orchestrator |
 | Agents spawned | `0` |
@@ -55,3 +55,18 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Scope Lock (error path): A missing mix or a model load failure raises an error and returns no partial list. [source: draft-accepted (initiative)]
 - Scope Lock (cross-session continuity): The function keeps no state, and a repeat call rewrites the output files. [source: draft-accepted (initiative)]
 - Scope Lock complete. All four scenario paths captured.
+- Complete: P0 (2026-11-15T22:02:44Z)
+
+### P1: Plan
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T22:02:44Z` |
+| End | `pending` |
+| Wall clock | `pending` |
+| Model tier | primary |
+| Skills loaded | ravintio-plan |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
