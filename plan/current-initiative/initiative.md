@@ -1,7 +1,7 @@
 ---
 title: "Initiative: 0000001 - Stem separation service"
 summary: "A self-hosted, scriptable stem separation service with a Python core, a CLI, a job queue, an HTTP API, a web page, and a Docker image."
-status: "charted"  # proposed | charted | active | delivered | blocked
+status: "active"  # proposed | charted | active | delivered | blocked
 ---
 # Initiative: 0000001 - Stem separation service
 
@@ -9,7 +9,7 @@ status: "charted"  # proposed | charted | active | delivered | blocked
 
 **Branch:** initiative/0000001-stem-separation-service
 
-**Status:** charted
+**Status:** active
 
 **Position:** 1
 
