@@ -89,6 +89,11 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Done: U1-config (content, inline, none, 2026-11-15T20:56:43Z)
 - Done: U2-packages (content, inline, none, 2026-11-15T20:56:43Z)
 - Tests run: REQ-001: src/stem-core/tests/test_smoke.py, src/stem-service/tests/test_smoke.py, src/stem-web/tests/test_smoke.py (2026-11-15T20:56:43Z)
+- RED: U3-ci (2026-11-15T20:56:56Z)
+- GREEN: U3-ci (2026-11-15T20:57:27Z)
+- Done: U3-ci (content, inline, none, 2026-11-15T20:57:27Z)
+- Tests run: REQ-002: src/stem-core/tests/test_ci_job.py (2026-11-15T20:57:27Z)
+- Tests run: test impact: test-0000327-req-002-ci-job.sh, test-0000390-req-003-enforcement-points.sh passed. test-0000317 and test-0000042 show failures that also appear in the P0 baseline run (2026-11-15T20:57:27Z)
 
 ---
 
