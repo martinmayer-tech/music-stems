@@ -1,7 +1,7 @@
 ---
 title: "ADR 0001: Python tooling and layout"
 summary: "Use one root pyproject.toml with pytest and ruff, and one package folder for each component under src/."
-status: "proposed"
+status: "accepted"
 component: "stem-core"
 version: "0.1.0"
 ---

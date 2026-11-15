@@ -28,3 +28,7 @@ Add a cause to the scan: the run adds a tracked file. List `test-0000042-req-010
 ## Why Deferred
 
 The change edits a pack skill, which lies outside the scope of the Python scaffold step.
+
+## Source retrospective
+
+`plan/retrospectives/0000002-python-scaffold-2026-11-15.md`. The postmortem is `plan/postmortems/2026-11-15-manifest-wording-test.md`.
