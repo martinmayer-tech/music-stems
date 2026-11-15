@@ -88,6 +88,11 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Done: U1-cli (content, inline, none, 2026-11-15T22:57:03Z)
 - Tests run: REQ-001, REQ-002, REQ-003, REQ-004: src/stem-core/tests/test_cli.py (2026-11-15T22:57:03Z)
 - In progress: U2-entry (2026-11-15T22:57:03Z)
+- RED: U2-entry (2026-11-15T22:57:26Z)
+- GREEN: U2-entry (2026-11-15T22:57:26Z)
+- Done: U2-entry (content, inline, none, 2026-11-15T22:57:26Z)
+- Tests run: REQ-001: src/stem-core/tests/test_entry_points.py, installed the package in a scratch venv and ran stems models, env, and split (2026-11-15T22:57:26Z)
+- In progress: U3-docs (2026-11-15T22:57:26Z)
 
 ---
 

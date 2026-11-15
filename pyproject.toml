@@ -16,8 +16,13 @@ dev = ["pytest", "ruff"]
 # The CPU build of the separation engine, at one exact version.
 separation = ["audio-separator[cpu]==0.48.0"]
 
+# The stems command lives in stem_core. Later steps add the other packages.
+[project.scripts]
+stems = "stem_core.cli:main"
+
 [tool.setuptools]
-packages = []
+package-dir = { "" = "src/stem-core" }
+packages = ["stem_core"]
 
 [tool.pytest.ini_options]
 testpaths = ["src/stem-core/tests", "src/stem-service/tests", "src/stem-web/tests"]
