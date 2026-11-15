@@ -69,9 +69,10 @@ flowchart LR
 | `src/stem-service/tests/test_smoke.py` | new | U2-packages |
 | `src/stem-web/stem_web/__init__.py` | new | U2-packages |
 | `src/stem-web/tests/test_smoke.py` | new | U2-packages |
-| `src/stem-core/docs/README.md` | new | U4-docs |
-| `src/stem-service/docs/README.md` | new | U4-docs |
-| `src/stem-web/docs/README.md` | new | U4-docs |
+| `src/stem-core/docs/purpose.md` and five more per-component docs | new | U4-docs |
+| `src/stem-service/docs/purpose.md` and five more per-component docs | new | U4-docs |
+| `src/stem-web/docs/purpose.md` and five more per-component docs | new | U4-docs |
+| `docs/component-registry.md`, `docs/dependency-graph.md` | new | U4-docs |
 | `docs/architecture-overview.md` | new | U4-docs |
 | `docs/decisions-index.md` | new | U4-docs |
 
@@ -82,7 +83,7 @@ flowchart LR
 | U1-config | none | `pyproject.toml`, `.gitignore` | 1 | none | none |
 | U2-packages | none | `src/stem-core/stem_core/__init__.py`, `src/stem-core/tests/test_smoke.py`, `src/stem-service/stem_service/__init__.py`, `src/stem-service/tests/test_smoke.py`, `src/stem-web/stem_web/__init__.py`, `src/stem-web/tests/test_smoke.py` | 1 | none | none |
 | U3-ci | U1-config | `.github/workflows/ravintio.yml` | 2 | Reads the commands that `pyproject.toml` defines | none |
-| U4-docs | U2-packages | `src/stem-core/docs/README.md`, `src/stem-service/docs/README.md`, `src/stem-web/docs/README.md`, `docs/architecture-overview.md`, `docs/decisions-index.md`, `product.yml` | 2 | none | none |
+| U4-docs | U2-packages | the `docs/` set of each component, `docs/component-registry.md`, `docs/dependency-graph.md`, `docs/architecture-overview.md`, `docs/decisions-index.md`, `product.yml` | 2 | none | none |
 
 ## Assumptions
 

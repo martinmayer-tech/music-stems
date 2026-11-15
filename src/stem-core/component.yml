@@ -3,7 +3,7 @@ id: "stem-core"
 name: "Stem core"
 feature: "0000002-python-scaffold"
 version: "0.1.0"
-status: "planned"
+status: "active"
 type: "component-pack"
 domain: "stem-separation"
 summary: "Holds the two-pass separation function and the stems command."
@@ -55,7 +55,7 @@ risk:
 
 quality:
   testCoverage:
-    unit: 1
+    unit: 4
     integration: 0
     e2e: 0
   techDebt: []
@@ -65,3 +65,12 @@ pipeline:
   templateVersion: "1.0.0"
   featureMode: "greenfield"
   domainKnowledgePath: "plan/current"
+
+metadata:
+  createdAt: "2026-11-15T20:57:56Z"
+  updatedAt: "2026-11-15T20:57:56Z"
+  createdBy: "agent"
+  lastModifiedBy: "agent"
+  skill: "ravintio-implement"
+  tool: "claude-code"
+  model: "claude-sonnet-5-5"

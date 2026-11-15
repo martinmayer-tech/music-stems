@@ -17,7 +17,7 @@ As a maintainer, I read the product version from `docs/about.md` and `product.ym
 
 ## Functional Requirements
 - `product.yml` lists `stem-core`, `stem-service`, and `stem-web` under `components`, each with its `component.yml` path.
-- Each component folder holds a `component.yml` and a `docs/` folder with a README.
+- Each component folder holds a `component.yml` and a `docs/` folder with the component docs set.
 - Step 1 leaves `version` at `0.0.0` in `docs/about.md` and `product.yml`. The merge queue sets `0.1.0` at merge.
 - The two version files hold the same version at all times.
 

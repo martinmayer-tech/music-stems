@@ -14,7 +14,7 @@ version: "0.1.0"
 
 - A root `pyproject.toml` with `pytest` and `ruff` settings and a `dev` extra.
 - Package skeletons and one smoke test for `stem-core`, `stem-service`, and `stem-web`.
-- A `component.yml` and a `docs/README.md` for each component.
+- A `component.yml` and a `docs/` set for each component.
 - A `python` job in `.github/workflows/ravintio.yml`.
 - The three components listed in `product.yml`.
 - Ignore rules for Python build and cache folders.
