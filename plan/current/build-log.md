@@ -78,8 +78,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-15T22:03:56Z` |
-| End | `pending` |
-| Wall clock | `pending` |
+| End | `2026-11-15T22:43:24Z` |
+| Wall clock | `34` |
 | Model tier | primary |
 | Skills loaded | ravintio-implement |
 | Agents spawned | `0` |
@@ -106,3 +106,19 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - RED: U4-docs (2026-11-15T22:08:23Z)
 - GREEN: U4-docs (2026-11-15T22:08:23Z)
 - Done: U4-docs (content, inline, none, 2026-11-15T22:08:23Z)
+- Tests run: full suite: 0 new failures, 57 inherited failures (2026-11-15T22:43:24Z)
+- Complete: P2 (2026-11-15T22:43:24Z)
+
+### P3: Validate and Accept
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T22:43:24Z` |
+| End | `pending` |
+| Wall clock | `pending` |
+| Model tier | primary |
+| Skills loaded | ravintio-validate-and-accept |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
