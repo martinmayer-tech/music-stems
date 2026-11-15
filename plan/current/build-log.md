@@ -26,8 +26,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-15T20:53:22Z` |
-| End | `` |
-| Wall clock | `` |
+| End | `2026-11-15T20:54:37Z` |
+| Wall clock | `2` |
 | Model tier | primary |
 | Skills loaded | ravintio-orchestrator |
 | Agents spawned | `0` |
@@ -49,6 +49,21 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Scope Lock (error path): A failing test or lint error turns the Python check red. [source: draft-accepted (initiative)]
 - Scope Lock (cross-session continuity): The step holds no runtime state and resumes from the build log. [source: draft-accepted (initiative)]
 - Scope Lock complete. All four scenario paths captured.
+- Complete: P0 (2026-11-15T20:54:37Z)
+
+### P1: Plan
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T20:54:37Z` |
+| End | `` |
+| Wall clock | `` |
+| Model tier | primary |
+| Skills loaded | ravintio-plan |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
 
 ---
 
