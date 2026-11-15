@@ -35,14 +35,14 @@ mix
 ```
 
 - Pass 1 gives the best vocal/instrumental split.
-- Pass 2 is only needed if you want drums, bass and other.
-- The two-pass approach is reported by producers, not formally benchmarked. Test on your own material.
+- You only need pass 2 if you want drums, bass and other.
+- Producers report the two-pass approach. No formal benchmark covers it. Test on your own material.
 
 ## 4. Requirements
 
 - Python 3.10 or newer (avoid 3.14.1).
 - FFmpeg on the path.
-- Nvidia GPU strongly recommended for speed; CPU works but is slow.
+- Nvidia GPU strongly recommended for speed. CPU works but is slow.
 
 ## 5. Install
 
@@ -84,7 +84,7 @@ Useful flags:
 - `--list_models` : show all supported models.
 - `--list_filter=vocals --list_limit=5` : top models for a given stem.
 - `--single_stem=Instrumental` : write one stem only.
-- `--model_file_dir` : where model files are cached (default `/tmp/audio-separator-models/`; set a persistent path).
+- `--model_file_dir` : where the tool caches model files (default `/tmp/audio-separator-models/`). Set a persistent path.
 
 Note: the CLI defaults to FLAC output and the Python class defaults to WAV. Set the format explicitly.
 
@@ -120,8 +120,8 @@ def split(mix_path: str, out_dir: str, full_stems: bool = False) -> list[str]:
 Notes:
 
 - `separate()` returns a list of output file paths.
-- The second argument renames stems; unnamed stems keep default names.
-- Passing a list or folder runs a batch; failures surface together as `BatchSeparationError`.
+- The second argument renames stems. Unnamed stems keep default names.
+- Passing a list or folder runs a batch. Failures surface together as `BatchSeparationError`.
 - Check whether returned paths are absolute or relative in your installed version before joining them.
 
 ## 8. Model choices
@@ -133,21 +133,21 @@ Notes:
 | Guitar and piano as well | `htdemucs_6s.yaml` (those two stems are weaker) |
 | Faster, lower quality 4-stem | `htdemucs.yaml` |
 
-- Run `audio-separator -l --list_filter=vocals --list_limit=5` periodically; newer Roformer checkpoints appear regularly.
+- Run `audio-separator -l --list_filter=vocals --list_limit=5` periodically. Newer Roformer checkpoints appear regularly.
 - De-reverb and de-noise models are also available if you need clean-up passes.
 
 ## 9. Squeezing out more quality
 
 - **Ensembles:** combine models with `-m` plus `--extra_models`, and choose a method with `--ensemble_algorithm`. Presets: `--list_presets`, `--ensemble_preset`.
 - **Lossless in, lossless out:** feed WAV or FLAC, not MP3.
-- **Listen, don't just read SDR:** models trade "fullness" against "bleed" differently.
+- **Listen as well as reading SDR:** models trade "fullness" against "bleed" differently.
 
 ## 10. Building your own service
 
-- Load each model once per worker and reuse it; model loading is the slow part.
-- Queue jobs; one GPU job at a time per card unless VRAM allows more.
+- Load each model once per worker and reuse it. Model loading is the slow part.
+- Queue jobs. Run one GPU job at a time per card unless VRAM allows more.
 - Persist `model_file_dir` on a volume so containers do not re-download.
-- Pin the `audio-separator` version; the API and defaults have changed between releases.
+- Pin the `audio-separator` version. The API and defaults have changed between releases.
 
 ## 11. Sources
 
