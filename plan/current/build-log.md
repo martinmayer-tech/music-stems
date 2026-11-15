@@ -50,3 +50,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Decision not applicable (initiative chart): Which version step 1 releases: step 1 only
 - Queue: no items name step 2
 - Bump: minor (chart row), planned version 0.2.0
+- Scope Lock (happy path): A developer calls `split` on a WAV mix and gets two absolute paths, or five with `full_stems=True`. [source: draft-accepted (initiative)]
+- Scope Lock (first-run path): The model folder holds no models, so `audio-separator` downloads them on first use. [source: draft-accepted (initiative)]
+- Scope Lock (error path): A missing mix or a model load failure raises an error and returns no partial list. [source: draft-accepted (initiative)]
+- Scope Lock (cross-session continuity): The function keeps no state, and a repeat call rewrites the output files. [source: draft-accepted (initiative)]
+- Scope Lock complete. All four scenario paths captured.
