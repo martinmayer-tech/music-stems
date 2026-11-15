@@ -74,8 +74,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-15T22:56:14Z` |
-| End | `{{timestamp, filled when the phase completes}}` |
-| Wall clock | `{{whole minutes from Start to End}}` |
+| End | `2026-11-15T23:44:42Z` |
+| Wall clock | `48` |
 | Model tier | primary |
 | Skills loaded | ravintio-implement |
 | Agents spawned | `0` |
@@ -96,6 +96,25 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - RED: U3-docs (2026-11-15T22:57:56Z)
 - GREEN: U3-docs (2026-11-15T22:57:56Z)
 - Done: U3-docs (content, inline, none, 2026-11-15T22:57:56Z)
+- Rework: REQ-004: the subprocess check used python -I, which ignores PYTHONPATH, so the check ran without -I (2026-11-15T23:44:42Z)
+- Tests run: full suite: 0 new failures, 57 inherited failures (2026-11-15T23:44:42Z)
+- Complete: P2 (2026-11-15T23:44:42Z)
+
+### P3: Validate and Accept
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T23:44:42Z` |
+| End | `{{timestamp, filled when the phase completes}}` |
+| Wall clock | `{{whole minutes from Start to End}}` |
+| Model tier | primary |
+| Skills loaded | ravintio-validate-and-accept |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- Docs edit pass: prose-check exit 0 on cycle 1, no subagent dispatched (2026-11-15T23:44:42Z)
+- Archetype gates: none installed
 
 ---
 
