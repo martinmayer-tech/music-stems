@@ -44,6 +44,11 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Decision applied (initiative chart): Which Python version to target
 - Decision applied (initiative chart): A step finds work outside its scope
 - Queue: no items name step 1
+- Scope Lock (happy path): The developer runs ruff and pytest from the repo root and both exit 0. CI does the same. [source: draft-accepted (initiative)]
+- Scope Lock (first-run path): A fresh clone creates a virtual environment and installs the dev extras. [source: draft-accepted (initiative)]
+- Scope Lock (error path): A failing test or lint error turns the Python check red. [source: draft-accepted (initiative)]
+- Scope Lock (cross-session continuity): The step holds no runtime state and resumes from the build log. [source: draft-accepted (initiative)]
+- Scope Lock complete. All four scenario paths captured.
 
 ---
 
