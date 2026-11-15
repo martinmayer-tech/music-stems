@@ -105,8 +105,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-15T23:44:42Z` |
-| End | `{{timestamp, filled when the phase completes}}` |
-| Wall clock | `{{whole minutes from Start to End}}` |
+| End | `2026-11-15T23:44:48Z` |
+| Wall clock | `0` |
 | Model tier | primary |
 | Skills loaded | ravintio-validate-and-accept |
 | Agents spawned | `0` |
@@ -115,6 +115,23 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Notes | none |
 - Docs edit pass: prose-check exit 0 on cycle 1, no subagent dispatched (2026-11-15T23:44:42Z)
 - Archetype gates: none installed
+- Complete: P3 (2026-11-15T23:44:48Z)
+
+### P4: Ship
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T23:44:48Z` |
+| End | `2026-11-15T23:44:54Z` |
+| Wall clock | `0` |
+| Model tier | primary |
+| Skills loaded | ravintio-ship |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- Complete: P4 (2026-11-15T23:44:54Z)
+- Postmortem: plan/postmortems/2026-11-15-isolated-subprocess-test.md REQ-004 (2026-11-15T23:45:11Z)
 
 ---
 
@@ -122,12 +139,12 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 
 | Metric | Value |
 |--------|-------|
-| Total phases completed | `{{count}}` |
-| Total wall clock | `{{minutes from pipeline start to the P4 End}}` |
-| Total agents spawned | `{{count}}` |
-| Total MCP calls | `{{count}}` |
-| Phases using parallelism | `{{count}}` |
-| Primary tier agent calls | `{{count}}` |
-| Cheaper tier agent calls | `{{count}}` |
-| Self-corrections | `{{count}}` |
-| Phases skipped | `{{list or "none"}}` |
+| Total phases completed | `5` |
+| Total wall clock | `50` |
+| Total agents spawned | `0` |
+| Total MCP calls | `0` |
+| Phases using parallelism | `0` |
+| Primary tier agent calls | `0` |
+| Cheaper tier agent calls | `0` |
+| Self-corrections | `1` |
+| Phases skipped | `none` |
