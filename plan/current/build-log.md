@@ -82,6 +82,13 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Notes | none |
 
 - Design revised: Component Paths gained `pyproject.toml`, `.gitignore`, and `product.yml`. The files were in scope but missing from the list. [source: draft-accepted (initiative)]
+- In progress: U1-config (2026-11-15T20:56:43Z)
+- RED: U2-packages (2026-11-15T20:56:37Z)
+- GREEN: U2-packages (2026-11-15T20:56:43Z)
+- GREEN: U1-config (2026-11-15T20:56:43Z)
+- Done: U1-config (content, inline, none, 2026-11-15T20:56:43Z)
+- Done: U2-packages (content, inline, none, 2026-11-15T20:56:43Z)
+- Tests run: REQ-001: src/stem-core/tests/test_smoke.py, src/stem-service/tests/test_smoke.py, src/stem-web/tests/test_smoke.py (2026-11-15T20:56:43Z)
 
 ---
 
