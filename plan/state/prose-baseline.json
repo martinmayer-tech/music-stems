@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "files": {
+    "plan/backlog/index.md": {
+      "passive": 1
+    },
+    "ravintio-zero/migrations/_done/0001-date-format.md": {
+      "em-dash": 5,
+      "semicolon": 1,
+      "sentence-length": 1
+    },
+    "ravintio-zero/migrations/_done/0002-british-english.md": {
+      "em-dash": 3,
+      "semicolon": 1,
+      "sentence-length": 1
+    },
+    "ravintio-zero/migrations/_done/0003-archive-dirname.md": {
+      "em-dash": 8,
+      "semicolon": 2,
+      "sentence-length": 1
+    },
+    "ravintio-zero/migrations/_done/migrate-adoption-mode-and-about-md.md": {
+      "em-dash": 3,
+      "sentence-length": 1
+    },
+    "ravintio-zero/migrations/_done/migrate-product-yml-component-paths.md": {
+      "blocklist": 2,
+      "em-dash": 10,
+      "passive": 2,
+      "semicolon": 3,
+      "sentence-length": 5
+    },
+    "ravintio-zero/migrations/_done/retroactive-release-tags.md": {
+      "blocklist": 1,
+      "em-dash": 9,
+      "passive": 3
+    }
+  }
+}
