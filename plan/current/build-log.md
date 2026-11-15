@@ -47,6 +47,11 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Decision applied (initiative chart): Which CLI library to use
 - Queue: no items name step 3
 - Bump: minor (chart row), planned version 0.3.0
+- Scope Lock (happy path): A user runs `stems split mix.wav --output-dir out` and gets one absolute path per line and exit 0. [source: draft-accepted (initiative)]
+- Scope Lock (first-run path): The model folder holds no models, so `audio-separator` downloads them on first use. [source: draft-accepted (initiative)]
+- Scope Lock (error path): A missing input file or a model failure prints one error line, prints no path, and exits non-zero. [source: draft-accepted (initiative)]
+- Scope Lock (cross-session continuity): The command keeps no state, and a repeat run rewrites the output files. [source: draft-accepted (initiative)]
+- Scope Lock complete. All four scenario paths captured.
 
 ---
 
