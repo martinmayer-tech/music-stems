@@ -27,7 +27,7 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 |-------|-------|
 | Start | `2026-11-15T22:01:54Z` |
 | End | `2026-11-15T22:02:44Z` |
-| Wall clock | `6` |
+| Wall clock | `1` |
 | Model tier | primary |
 | Skills loaded | ravintio-orchestrator |
 | Agents spawned | `0` |
@@ -63,7 +63,7 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 |-------|-------|
 | Start | `2026-11-15T22:02:44Z` |
 | End | `2026-11-15T22:03:56Z` |
-| Wall clock | `2` |
+| Wall clock | `1` |
 | Model tier | primary |
 | Skills loaded | ravintio-plan |
 | Agents spawned | `0` |
@@ -79,7 +79,7 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 |-------|-------|
 | Start | `2026-11-15T22:03:56Z` |
 | End | `2026-11-15T22:43:24Z` |
-| Wall clock | `34` |
+| Wall clock | `39` |
 | Model tier | primary |
 | Skills loaded | ravintio-implement |
 | Agents spawned | `0` |
@@ -106,6 +106,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - RED: U4-docs (2026-11-15T22:08:23Z)
 - GREEN: U4-docs (2026-11-15T22:08:23Z)
 - Done: U4-docs (content, inline, none, 2026-11-15T22:08:23Z)
+- Postmortem: plan/postmortems/2026-11-15-real-separator-differences.md (2026-11-15T22:44:23Z)
+- Postmortem: plan/postmortems/2026-11-15-real-separator-differences.md (2026-11-15T22:44:23Z)
 - Tests run: full suite: 0 new failures, 57 inherited failures (2026-11-15T22:43:24Z)
 - Complete: P2 (2026-11-15T22:43:24Z)
 
@@ -115,7 +117,7 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 |-------|-------|
 | Start | `2026-11-15T22:43:24Z` |
 | End | `2026-11-15T22:43:48Z` |
-| Wall clock | `2` |
+| Wall clock | `0` |
 | Model tier | primary |
 | Skills loaded | ravintio-validate-and-accept |
 | Agents spawned | `0` |
@@ -130,11 +132,28 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-15T22:43:48Z` |
-| End | `pending` |
-| Wall clock | `pending` |
+| End | `2026-11-15T22:44:23Z` |
+| Wall clock | `1` |
 | Model tier | primary |
 | Skills loaded | ravintio-ship |
 | Agents spawned | `0` |
 | MCP calls | `0` |
 | Parallel task batches | `0` |
 | Notes | none |
+- Complete: P4 (2026-11-15T22:44:23Z)
+
+---
+
+## Summary (filled at ship, P4)
+
+| Metric | Value |
+|--------|-------|
+| Total phases completed | `5` |
+| Total wall clock | `44` |
+| Total agents spawned | `0` |
+| Total MCP calls | `0` |
+| Phases using parallelism | `0` |
+| Primary tier agent calls | `0` |
+| Cheaper tier agent calls | `0` |
+| Self-corrections | `2` |
+| Phases skipped | `none` |
