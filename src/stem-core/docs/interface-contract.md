@@ -25,4 +25,16 @@ Pass 1 uses `model_bs_roformer_ep_317_sdr_12.9755.ckpt`. Pass 2 uses `htdemucs_f
 |----------|---------|---------|
 | `STEMS_MODEL_DIR` | `./models` | The folder where `audio-separator` keeps downloaded models |
 
-Later steps add the `stems` command.
+## The `stems` command
+
+`pip install .` installs a `stems` console script. `python -m stem_core` runs the same `main()`. Both come from `stem_core.cli`.
+
+| Subcommand | Behaviour | Exit code |
+|------------|-----------|-----------|
+| `stems split FILE [--output-dir DIR] [--full-stems]` | Calls `split()` and prints one absolute path per line to standard output. The output folder defaults to `./stems-out`. | 0 on success. 1 on any failure. |
+| `stems env` | Prints `python: {version}`, `ffmpeg: {first line of ffmpeg -version, or not found}`, and `device: {cuda, mps, or cpu}`. | 0 |
+| `stems models` | Prints `vocals-and-instrumental: {file}` and `drums-bass-other: {file}`. | 0 |
+
+A failure prints one `stems: error: {message}` line to standard error and no traceback. A missing input file is a failure. A missing `audio_separator` package is a failure whose line names the `separation` extra. An argument error exits 2, as `argparse` does.
+
+`stem_core.cli.main(argv=None, split_func=None, probes=None)` returns the exit code. Tests pass `split_func` and `probes` as fakes. `Probes` holds three functions: `python`, `ffmpeg`, and `device`.
