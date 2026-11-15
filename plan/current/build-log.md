@@ -26,8 +26,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-15T23:54:56Z` |
-| End | `` |
-| Wall clock | `` |
+| End | `2026-11-15T23:55:40Z` |
+| Wall clock | `1` |
 | Model tier | primary |
 | Skills loaded | ravintio-orchestrator |
 | Agents spawned | `0` |
@@ -48,3 +48,10 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Decision applied (initiative chart): Where the service keeps its data
 - Queue: no items name step 4
 - Bump: minor (chart row), planned version 0.4.0
+- Scope Lock (happy path): A caller adds two jobs, the worker runs them one after the other, and each ends as `done` with its output paths. [source: draft-accepted (initiative)]
+- Scope Lock (first-run path): `STEMS_DATA_DIR` holds no file, so the store creates the folder, the file, and the table. [source: draft-accepted (initiative)]
+- Scope Lock (error path): A missing input file or a separator failure ends the job as `failed` with one error line, and the worker goes on. [source: draft-accepted (initiative)]
+- Scope Lock (cross-session continuity): A restart returns a `running` job to `queued`, and the worker runs every queued job. [source: draft-accepted (initiative)]
+- Scope Lock complete. All four scenario paths captured.
+- Schema: step 4 row `jobs` (additive) applies as charted
+- Complete: P0 (2026-11-15T23:55:40Z)
