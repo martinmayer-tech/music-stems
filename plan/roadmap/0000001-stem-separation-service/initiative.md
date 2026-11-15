@@ -1,7 +1,7 @@
 ---
 title: "Initiative: 0000001 - Stem separation service"
 summary: "A self-hosted, scriptable stem separation service with a Python core, a CLI, a job queue, an HTTP API, a web page, and a Docker image."
-status: "proposed"  # proposed | charted | active | delivered | blocked
+status: "charted"  # proposed | charted | active | delivered | blocked
 ---
 # Initiative: 0000001 - Stem separation service
 
@@ -9,7 +9,7 @@ status: "proposed"  # proposed | charted | active | delivered | blocked
 
 **Branch:** initiative/0000001-stem-separation-service
 
-**Status:** proposed
+**Status:** charted
 
 **Position:** 1
 
@@ -74,8 +74,8 @@ The steps build three components under `src/`.
 
 | Step | Fork | Pre-approved answer | Bump effect |
 |------|------|---------------------|-------------|
-| 1 | No version file exists on the initiative branch | Plan from `0.0.0`, so step 1 releases `0.1.0`. Step 1 creates `docs/about.md` and `product.yml` | none |
-| 1 | The merge queue writes the product version into `ravintio-zero/component.yml` | Human stop: Chart settles the version file list before activation | none |
+| 1 | Which version step 1 releases | `docs/about.md` and `product.yml` hold `0.0.0`, so step 1 releases `0.1.0`. Step 1 adds each new component to `product.yml` | none |
+| 1-8 | Whether the product version tracks the pack version | It never does. `ravintio-zero/version-files.txt` lists `docs/about.md` and `product.yml` only. No step edits that list or `ravintio-zero/component.yml` | none |
 | 1-8 | Which Python version to target | Target Python 3.12 in CI and in Docker. Set `requires-python` to `>=3.10`. Local runs use Python 3.13 | none |
 | 1-8 | A step finds work outside its scope | File a backlog entry and keep the step's scope | none |
 | 2 | Which `audio-separator` version to pin | Pin the newest PyPI release on the day step 2 runs, with `==` | none |
