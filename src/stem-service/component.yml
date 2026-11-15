@@ -1,0 +1,75 @@
+# RAVINTIO Component Manifest
+id: "stem-service"
+name: "Stem service"
+feature: "0000002-python-scaffold"
+version: "0.1.0"
+status: "active"
+type: "microservice"
+domain: "stem-separation"
+summary: "Holds the job store, the worker, and the HTTP API."
+systemContext: "Sits between the web page and stem-core. Receives uploads and runs jobs."
+
+responsibilities:
+  - "Holds the job store, the worker, and the HTTP API."
+
+exceptions:
+  - "Step 1 adds no behaviour. This component holds a package skeleton and a smoke test only."
+
+stack:
+  language: "python"
+  runtime: "python"
+  frontend: "none"
+  styling: "none"
+  componentLibrary: "none"
+  database: "none"
+  orm: "none"
+  testing: "pytest"
+  iac: "none"
+  cloud: "none"
+  compute: "none"
+  ci: "github-actions"
+
+contract:
+  inputs: []
+  outputs: []
+  consumedBy: []
+  consumes: []
+  breakingChangePolicy: "requires-adr"
+
+data:
+  ownsData: false
+  tables: []
+  schemaVersion: "0.0.0"
+
+scope:
+  inScope:
+    - "A package skeleton and one smoke test"
+  outOfScope:
+    - "Any behaviour. Later steps add it."
+  deferred: []
+
+risk:
+  level: "low"
+  items: []
+
+quality:
+  testCoverage:
+    unit: 1
+    integration: 0
+    e2e: 0
+  techDebt: []
+  quirks: []
+
+pipeline:
+  templateVersion: "1.0.0"
+  featureMode: "greenfield"
+  domainKnowledgePath: "plan/_archive/0000002-python-scaffold-2026-11-15"
+
+metadata:
+  createdAt: "2026-11-15T20:57:56Z"
+  updatedAt: "2026-11-15T20:57:56Z"
+  createdBy: "agent"
+  lastModifiedBy: "agent"
+  skill: "ravintio-implement"
+  tool: "claude-code"
+  model: "claude-sonnet-5-5"

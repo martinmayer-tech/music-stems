@@ -1,0 +1,76 @@
+# RAVINTIO Component Manifest
+id: "stem-core"
+name: "Stem core"
+feature: "0000002-python-scaffold"
+version: "0.1.0"
+status: "active"
+type: "component-pack"
+domain: "stem-separation"
+summary: "Holds the two-pass separation function and the stems command."
+systemContext: "Called by stem-service to split audio and by the command line. Calls audio-separator."
+
+responsibilities:
+  - "Holds the two-pass separation function and the stems command."
+
+exceptions:
+  - "Step 1 adds no behaviour. This component holds a package skeleton and a smoke test only."
+
+stack:
+  language: "python"
+  runtime: "python"
+  frontend: "none"
+  styling: "none"
+  componentLibrary: "none"
+  database: "none"
+  orm: "none"
+  testing: "pytest"
+  iac: "none"
+  cloud: "none"
+  compute: "none"
+  ci: "github-actions"
+
+contract:
+  inputs: []
+  outputs: []
+  consumedBy: []
+  consumes: []
+  breakingChangePolicy: "requires-adr"
+
+data:
+  ownsData: false
+  tables: []
+  schemaVersion: "0.0.0"
+
+scope:
+  inScope:
+    - "A package skeleton and one smoke test"
+  outOfScope:
+    - "Any behaviour. Later steps add it."
+  deferred: []
+
+risk:
+  level: "low"
+  items: []
+
+quality:
+  testCoverage:
+    unit: 4
+    integration: 0
+    e2e: 0
+  techDebt: []
+  quirks:
+    - "tests/test_ci_job.py checks the CI workflow file"
+
+pipeline:
+  templateVersion: "1.0.0"
+  featureMode: "greenfield"
+  domainKnowledgePath: "plan/_archive/0000002-python-scaffold-2026-11-15"
+
+metadata:
+  createdAt: "2026-11-15T20:57:56Z"
+  updatedAt: "2026-11-15T20:57:56Z"
+  createdBy: "agent"
+  lastModifiedBy: "agent"
+  skill: "ravintio-implement"
+  tool: "claude-code"
+  model: "claude-sonnet-5-5"
