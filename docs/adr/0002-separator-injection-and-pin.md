@@ -1,7 +1,7 @@
 ---
 title: "ADR 0002: Separator injection, lazy import, and a pinned extra"
 summary: "split() builds its separator through an injectable factory, imports audio_separator late, and installs the library from a pinned optional extra."
-status: "proposed"
+status: "accepted"
 component: "stem-core"
 version: "0.2.0"
 ---
