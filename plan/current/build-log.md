@@ -101,6 +101,20 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Departure from the concurrency plan: units ran inline in plan order. The units were small.
 - Complete: P2 (2026-11-15T21:36:31Z)
 
+### P3: Validate and Accept
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T21:36:48Z` |
+| End | `` |
+| Wall clock | `` |
+| Model tier | primary |
+| Skills loaded | ravintio-validate-and-accept |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+
 ---
 
 ## Summary (filled at ship, P4)
