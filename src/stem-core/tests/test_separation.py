@@ -16,6 +16,7 @@ class FakeSeparator:
     """Writes real files, returns bare file names like audio-separator does."""
 
     instances: list["FakeSeparator"] = []
+    reverse_order = False
 
     def __init__(self, output_dir, output_format, model_file_dir):
         self.output_dir = Path(output_dir)
@@ -36,6 +37,8 @@ class FakeSeparator:
         else:
             stems = ["Drums", "Bass", "Other", "Vocals"]
         files = []
+        if self.reverse_order:
+            stems = list(reversed(stems))
         for stem in stems:
             name = (names or {}).get(stem, f"{Path(path).stem}_({stem})")
             (self.output_dir / f"{name}.wav").write_text(f"pass{pass_number}:{stem}")
@@ -46,6 +49,7 @@ class FakeSeparator:
 @pytest.fixture(autouse=True)
 def reset_fake():
     FakeSeparator.instances.clear()
+    FakeSeparator.reverse_order = False
 
 
 @pytest.fixture
@@ -115,3 +119,10 @@ def test_req_002_pass_two_reads_the_pass_one_instrumental(mix, tmp_path):
 def test_req_002_residual_vocals_file_is_removed(mix, tmp_path):
     split(mix, tmp_path / "out", full_stems=True, separator_factory=FakeSeparator)
     assert not (tmp_path / "out" / "residual_vocals.wav").exists()
+
+
+def test_req_001_result_order_does_not_depend_on_the_separator_order(mix, tmp_path):
+    FakeSeparator.reverse_order = True
+    result = split(mix, tmp_path / "out", full_stems=True, separator_factory=FakeSeparator)
+    names = [Path(p).name for p in result]
+    assert names == ["vocals.wav", "instrumental.wav", "drums.wav", "bass.wav", "other.wav"]

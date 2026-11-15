@@ -13,6 +13,7 @@ DEFAULT_MODEL_DIR = "./models"
 MODEL_DIR_VARIABLE = "STEMS_MODEL_DIR"
 
 PASS_ONE_NAMES = {"Vocals": "vocals", "Instrumental": "instrumental"}
+PASS_ONE_KEPT = ("vocals", "instrumental")
 RESIDUAL_STEM = "residual_vocals"
 PASS_TWO_NAMES = {
     "Drums": "drums",
@@ -77,13 +78,16 @@ def split(
     separator = factory(str(out), "WAV", resolve_model_dir())
 
     separator.load_model(model_filename=VOCALS_MODEL)
-    first = [_absolute(p, out) for p in separator.separate(str(mix), PASS_ONE_NAMES)]
+    reported_first = separator.separate(str(mix), PASS_ONE_NAMES)
+    first_by_stem = _by_stem([_absolute(p, out) for p in reported_first])
+    missing_first = [name for name in PASS_ONE_KEPT if name not in first_by_stem]
+    if missing_first:
+        raise RuntimeError(f"pass 1 wrote no {', '.join(missing_first)} file")
+    first = [first_by_stem[name] for name in PASS_ONE_KEPT]
     if not full_stems:
         return [str(p) for p in first]
 
-    instrumental = _by_stem(first).get("instrumental")
-    if instrumental is None:
-        raise RuntimeError("pass 1 wrote no instrumental file")
+    instrumental = first_by_stem["instrumental"]
 
     separator.load_model(model_filename=FULL_STEMS_MODEL)
     reported = separator.separate(str(instrumental), PASS_TWO_NAMES)
