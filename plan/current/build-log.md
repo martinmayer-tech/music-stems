@@ -83,6 +83,7 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 
 - Design revised: Component Paths gained `pyproject.toml`, `.gitignore`, and `product.yml`. The files were in scope but missing from the list. [source: draft-accepted (initiative)]
 - In progress: U1-config (2026-11-15T20:56:43Z)
+- RED: U1-config (2026-11-15T20:56:37Z)
 - RED: U2-packages (2026-11-15T20:56:37Z)
 - GREEN: U2-packages (2026-11-15T20:56:43Z)
 - GREEN: U1-config (2026-11-15T20:56:43Z)
@@ -97,7 +98,10 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Rework: U4-docs: test-0000042-req-010 failed on a word that the allowlist bans in the manifests, so the step removed the optional stack field (2026-11-15T21:36:31Z)
 - Tests run: full suite: 1 new failure, 56 inherited failures (2026-11-15T21:36:31Z)
 - Tests run: full suite rerun of test-0000042-req-010-pack-wording-allowlist.sh: 2 passed, 0 failed (2026-11-15T21:36:31Z)
+- RED: U4-docs (2026-11-15T21:36:00Z)
+- GREEN: U4-docs (2026-11-15T21:36:31Z)
 - Done: U4-docs (content, inline, none, 2026-11-15T21:36:31Z)
+- Postmortem: plan/postmortems/2026-11-15-manifest-wording-test.md (2026-11-15T21:58:29Z)
 - Departure from the concurrency plan: units ran inline in plan order. The units were small.
 - Complete: P2 (2026-11-15T21:36:31Z)
 
@@ -124,8 +128,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-15T21:57:48Z` |
-| End | `` |
-| Wall clock | `` |
+| End | `2026-11-15T21:57:53Z` |
+| Wall clock | `1` |
 | Model tier | primary |
 | Skills loaded | ravintio-ship |
 | Agents spawned | `0` |
@@ -133,18 +137,20 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Parallel task batches | `0` |
 | Notes | none |
 
+- Complete: P4 (2026-11-15T21:57:53Z)
+
 ---
 
 ## Summary (filled at ship, P4)
 
 | Metric | Value |
 |--------|-------|
-| Total phases completed | `` |
-| Total wall clock | `` |
-| Total agents spawned | `` |
-| Total MCP calls | `` |
-| Phases using parallelism | `` |
-| Primary tier agent calls | `` |
-| Cheaper tier agent calls | `` |
-| Self-corrections | `` |
-| Phases skipped | `` |
+| Total phases completed | `5` |
+| Total wall clock | `67` |
+| Total agents spawned | `0` |
+| Total MCP calls | `0` |
+| Phases using parallelism | `0` |
+| Primary tier agent calls | `0` |
+| Cheaper tier agent calls | `0` |
+| Self-corrections | `2` |
+| Phases skipped | `none` |
