@@ -29,7 +29,7 @@ None. The three units were small and ran inline. Unit U2-entry waited for U1-cli
 
 ## Inherited failures
 
-57 suites fail on the base commit. The list is in `baseline-failures.md` in this folder. No backlog entry is filed for them, because they predate the initiative.
+57 suites fail on the base commit. The list is in `baseline-failures.md` in this folder. The step files no backlog entry for them, because they predate the initiative.
 
 CI duration: 118s for the `python` job run, with all checks green.
 ## Workflow governance
