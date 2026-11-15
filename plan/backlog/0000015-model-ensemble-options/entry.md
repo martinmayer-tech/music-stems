@@ -25,7 +25,7 @@ Every job uses the two default models. Sections 8 and 9 of the guide list other 
 
 Let a caller pick the pass 2 model from `htdemucs_ft.yaml`, `htdemucs_6s.yaml`, and `htdemucs.yaml`. Let a caller pick an ensemble preset for pass 1 and a single stem to write. Expose the options in `split()`, the `stems` command, the API, and the page. Reject any model outside the allowlist.
 
-**Observable condition:** a job with `htdemucs_6s.yaml` returns guitar and piano stems, and a job that names an unlisted model fails with a clear error before any model loads.
+**Observable condition:** a job with `htdemucs_6s.yaml` returns guitar and piano stems. A job that names an unlisted model fails with a clear error before any model loads.
 
 ## Why Deferred
 
