@@ -86,3 +86,9 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | MCP calls | `0` |
 | Parallel task batches | `0` |
 | Notes | none |
+- In progress: U1-core (2026-11-15T22:04:09Z)
+- RED: U1-core (2026-11-15T22:04:09Z)
+- GREEN: U1-core (2026-11-15T22:04:43Z)
+- Done: U1-core (content, inline, none, 2026-11-15T22:04:43Z)
+- Tests run: REQ-001, REQ-002: src/stem-core/tests/test_separation.py (2026-11-15T22:04:43Z)
+- In progress: U2-pin-ci (2026-11-15T22:04:43Z)
