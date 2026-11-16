@@ -98,3 +98,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Done: U2-cli (content, inline, none, 2026-11-16T02:25:27Z)
 - Deviation: the test impact scan said the existing models test passes unchanged, but it counted exactly two lines. The agent changed it to check the first two lines, so the new listing lines can follow (2026-11-16T02:25:27Z)
 - Tests run: REQ-002: src/stem-core/tests/test_cli_options.py, src/stem-core/tests/test_cli.py (2026-11-16T02:25:27Z)
+- In progress: U3-service (2026-11-16T02:25:28Z)
+- RED: U3-service (2026-11-16T02:25:54Z)
+- GREEN: U3-service (2026-11-16T02:25:59Z)
+- Done: U3-service (content, inline, none, 2026-11-16T02:25:59Z)
+- Tests run: REQ-003: src/stem-service/tests/test_api_options.py, src/stem-service/tests/test_worker_options.py (2026-11-16T02:25:59Z)

@@ -11,6 +11,7 @@ from typing import Any
 from fastapi import FastAPI, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+from stem_core.separation import validate_options
 from stem_web import static_dir
 
 from stem_service.config import (
@@ -86,7 +87,23 @@ def create_app(
         return FileResponse(page_folder / "index.html", media_type="text/html")
 
     @app.post("/jobs", status_code=201)
-    async def create_job(file: UploadFile, full_stems: bool = Form(False)) -> dict[str, Any]:
+    async def create_job(
+        file: UploadFile,
+        full_stems: bool = Form(False),
+        model: str | None = Form(None),
+        ensemble_preset: str | None = Form(None),
+        single_stem: str | None = Form(None),
+    ) -> dict[str, Any]:
+        chosen = {
+            "model": model or None,
+            "ensemble_preset": ensemble_preset or None,
+            "single_stem": single_stem or None,
+        }
+        try:
+            validate_options(**chosen)
+        except ValueError as error:
+            raise HTTPException(422, str(error)) from error
+        job_options = {key: value for key, value in chosen.items() if value is not None}
         name = _client_file_name(file.filename)
         if Path(name).suffix.lower() not in ALLOWED_EXTENSIONS:
             raise HTTPException(415, "The file must be WAV, FLAC, MP3, or M4A.")
@@ -107,7 +124,7 @@ def create_app(
             target.unlink(missing_ok=True)
             folder.rmdir()
             raise
-        job_id = store.add(target, full_stems)
+        job_id = store.add(target, full_stems, job_options)
         for worker in app.state.workers:
             worker.wake()
         return _job_json(store.get(job_id))
