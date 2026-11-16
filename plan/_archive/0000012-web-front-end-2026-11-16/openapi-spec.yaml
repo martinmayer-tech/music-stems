@@ -1,0 +1,42 @@
+openapi: 3.1.0
+info:
+  title: Stem service page routes
+  version: 0.6.0
+  description: The two routes that serve the web page of stem-web. The job routes are in the step 5 spec.
+servers:
+  - url: http://127.0.0.1:8000
+paths:
+  /:
+    get:
+      operationId: getPage
+      summary: Return the web page
+      responses:
+        "200":
+          description: The page.
+          content:
+            text/html:
+              schema:
+                type: string
+  /static/{file}:
+    get:
+      operationId: getPageFile
+      summary: Return one file of the page folder
+      parameters:
+        - name: file
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of `app.js` or `style.css`.
+      responses:
+        "200":
+          description: The file.
+          content:
+            text/javascript:
+              schema:
+                type: string
+            text/css:
+              schema:
+                type: string
+        "404":
+          description: The page folder holds no file with this name.
