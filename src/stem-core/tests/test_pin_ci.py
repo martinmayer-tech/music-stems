@@ -23,7 +23,7 @@ def test_req_003_separation_extra_pins_audio_separator_exactly():
 def test_req_003_ci_installs_the_separation_extra():
     job = python_job()
     assert "separation" in job
-    assert ".[dev,separation]" in job
+    assert ".[dev,service,separation]" in job
 
 
 def test_req_003_pytest_settings_register_the_slow_marker():
