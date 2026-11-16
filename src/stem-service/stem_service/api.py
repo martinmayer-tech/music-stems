@@ -10,6 +10,8 @@ from typing import Any
 
 from fastapi import FastAPI, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+from stem_web import static_dir
 
 from stem_service.config import (
     database_path,
@@ -75,6 +77,13 @@ def create_app(
     app = FastAPI(title="Stem service", lifespan=lifespan)
     app.state.store = store
     app.state.workers = []
+
+    page_folder = static_dir()
+    app.mount("/static", StaticFiles(directory=page_folder), name="static")
+
+    @app.get("/", include_in_schema=False)
+    def get_page() -> FileResponse:
+        return FileResponse(page_folder / "index.html", media_type="text/html")
 
     @app.post("/jobs", status_code=201)
     async def create_job(file: UploadFile, full_stems: bool = Form(False)) -> dict[str, Any]:

@@ -73,3 +73,23 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Notes | none |
 - Schema: none (plan check)
 - Complete: P1 (2026-11-16T01:33:33Z)
+
+### P2: Implement
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-16T01:33:33Z` |
+| End | `pending` |
+| Wall clock | `0` |
+| Model tier | primary |
+| Skills loaded | ravintio-implement |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- In progress: U1-serve (2026-11-16T01:34:00Z)
+- RED: U1-serve (2026-11-16T01:34:01Z)
+- GREEN: U1-serve (2026-11-16T01:34:17Z)
+- Done: U1-serve (content, inline, none, 2026-11-16T01:34:17Z)
+- Tests run: REQ-001: src/stem-web/tests/test_page_serve.py (2026-11-16T01:34:17Z)
+- In progress: U2-script (2026-11-16T01:34:17Z)
