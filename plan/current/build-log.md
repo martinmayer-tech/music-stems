@@ -111,3 +111,4 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Tests run: U4-docs: src/stem-service/tests/test_docker_docs.py (2026-11-16T03:12:58Z)
 - Deviation: the first local image build failed because diffq needs gcc. The Dockerfile adds and removes gcc in the pip install layer. gcc is a build-only tool, and no chart row lists it. (2026-11-16T03:13:30Z)
 - Backlog: pulled in entry 0000017, filed 0000023 and 0000024, and rebuilt the index (2026-11-16T03:21:27Z)
+- Baseline: 62 failures recorded in plan/current/baseline-failures.md after the clean-clone run ended (2026-11-16T03:41:49Z)
