@@ -3,7 +3,7 @@
 
 id: "music-stems"
 name: "Music Stems"
-version: "0.1.0"
+version: "0.2.0"
 feature: "0000001-stem-separation-service"
 versionPolicy: "explicit"
 

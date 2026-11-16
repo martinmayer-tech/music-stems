@@ -1,0 +1,159 @@
+---
+title: "Build Log - 0000004-separation-core"
+summary: "Working record of the pipeline run, maintained by the orchestrator."
+---
+# Build Log - 0000004-separation-core
+
+> Created at discovery (P0). Appended by the orchestrator at each phase boundary. Survives session changes.
+
+## Header
+
+| Field | Value |
+|-------|-------|
+| Feature ID | `0000004-separation-core` |
+| Pipeline start | `2026-11-15T22:01:54Z` |
+| Tool | `claude-code` |
+| Primary model | `claude-sonnet-5-5` |
+| Cheaper model | `claude-haiku-5-5` |
+| Run speed | `standard` |
+
+---
+
+## Phase Log
+
+### P0: Discovery
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T22:01:54Z` |
+| End | `2026-11-15T22:02:44Z` |
+| Wall clock | `1` |
+| Model tier | primary |
+| Skills loaded | ravintio-orchestrator |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | Step 2 of initiative 0000001 |
+
+- Migration pending: 0007
+- Migration pending: 0009
+- Run mode: autonomous (2026-11-15T22:01:54Z)
+- Run speed: standard (2026-11-15T22:01:54Z)
+- Adoption mode: standard-iterative (signal: `docs/about.md` at 0.1.0, `src/` present, step 1 archived)
+- Decision applied (initiative chart): Whether the product version tracks the pack version
+- Decision applied (initiative chart): Which Python version to target
+- Decision applied (initiative chart): A step finds work outside its scope
+- Decision applied (initiative chart): Which `audio-separator` version to pin
+- Decision applied (initiative chart): Tests need a real model
+- Decision applied (initiative chart): `separate()` returns relative paths
+- Decision applied (initiative chart): `audio-separator` fails to install on local Python 3.13
+- Decision not applicable (initiative chart): Which version step 1 releases: step 1 only
+- Queue: no items name step 2
+- Bump: minor (chart row), planned version 0.2.0
+- Scope Lock (happy path): A developer calls `split` on a WAV mix and gets two absolute paths, or five with `full_stems=True`. [source: draft-accepted (initiative)]
+- Scope Lock (first-run path): The model folder holds no models, so `audio-separator` downloads them on first use. [source: draft-accepted (initiative)]
+- Scope Lock (error path): A missing mix or a model load failure raises an error and returns no partial list. [source: draft-accepted (initiative)]
+- Scope Lock (cross-session continuity): The function keeps no state, and a repeat call rewrites the output files. [source: draft-accepted (initiative)]
+- Scope Lock complete. All four scenario paths captured.
+- Complete: P0 (2026-11-15T22:02:44Z)
+
+### P1: Plan
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T22:02:44Z` |
+| End | `2026-11-15T22:03:56Z` |
+| Wall clock | `1` |
+| Model tier | primary |
+| Skills loaded | ravintio-plan |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+
+- Complete: P1 (2026-11-15T22:03:56Z)
+
+### P2: Implement
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T22:03:56Z` |
+| End | `2026-11-15T22:43:24Z` |
+| Wall clock | `39` |
+| Model tier | primary |
+| Skills loaded | ravintio-implement |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- In progress: U1-core (2026-11-15T22:04:09Z)
+- RED: U1-core (2026-11-15T22:04:09Z)
+- GREEN: U1-core (2026-11-15T22:04:43Z)
+- Done: U1-core (content, inline, none, 2026-11-15T22:04:43Z)
+- Tests run: REQ-001, REQ-002: src/stem-core/tests/test_separation.py (2026-11-15T22:04:43Z)
+- In progress: U2-pin-ci (2026-11-15T22:04:43Z)
+- RED: U2-pin-ci (2026-11-15T22:04:43Z)
+- GREEN: U2-pin-ci (2026-11-15T22:04:57Z)
+- Done: U2-pin-ci (content, inline, none, 2026-11-15T22:04:57Z)
+- Tests run: REQ-003: src/stem-core/tests/test_pin_ci.py, src/stem-core/tests/test_ci_job.py (2026-11-15T22:04:57Z)
+- In progress: U3-smoke (2026-11-15T22:04:57Z)
+- RED: U3-smoke (2026-11-15T22:05:03Z)
+- GREEN: U3-smoke (2026-11-15T22:08:23Z)
+- Done: U3-smoke (content, inline, none, 2026-11-15T22:08:23Z)
+- Tests run: REQ-003: src/stem-core/tests/test_real_model.py, run with -m slow against the real model on Python 3.13 (2026-11-15T22:08:23Z)
+- Rework: U3-smoke: the vocals stem of a pure tone is silent, so the test checks sound in the instrumental only (2026-11-15T22:08:23Z)
+- Rework: U1-core: the real separator listed the instrumental first, so split() sorts pass 1 stems by name (2026-11-15T22:08:23Z)
+- RED: U4-docs (2026-11-15T22:08:23Z)
+- GREEN: U4-docs (2026-11-15T22:08:23Z)
+- Done: U4-docs (content, inline, none, 2026-11-15T22:08:23Z)
+- Postmortem: plan/postmortems/2026-11-15-real-separator-differences.md (2026-11-15T22:44:23Z)
+- Postmortem: plan/postmortems/2026-11-15-real-separator-differences.md (2026-11-15T22:44:23Z)
+- Tests run: full suite: 0 new failures, 57 inherited failures (2026-11-15T22:43:24Z)
+- Complete: P2 (2026-11-15T22:43:24Z)
+
+### P3: Validate and Accept
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T22:43:24Z` |
+| End | `2026-11-15T22:43:48Z` |
+| Wall clock | `0` |
+| Model tier | primary |
+| Skills loaded | ravintio-validate-and-accept |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- Docs edit pass: prose-check exit 0 on cycle 1, no subagent dispatched (2026-11-15T22:43:48Z)
+- Complete: P3 (2026-11-15T22:43:48Z)
+
+### P4: Ship
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T22:43:48Z` |
+| End | `2026-11-15T22:44:23Z` |
+| Wall clock | `1` |
+| Model tier | primary |
+| Skills loaded | ravintio-ship |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- Complete: P4 (2026-11-15T22:44:23Z)
+
+---
+
+## Summary (filled at ship, P4)
+
+| Metric | Value |
+|--------|-------|
+| Total phases completed | `5` |
+| Total wall clock | `44` |
+| Total agents spawned | `0` |
+| Total MCP calls | `0` |
+| Phases using parallelism | `0` |
+| Primary tier agent calls | `0` |
+| Cheaper tier agent calls | `0` |
+| Self-corrections | `2` |
+| Phases skipped | `none` |
