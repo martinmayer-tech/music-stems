@@ -168,3 +168,4 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Backlog: pulled in entry 0000015 and rebuilt the index (2026-11-16T02:56:46Z)
 - Backlog: filed 0000022 (test-impact-listing-assertions) from the retrospective (2026-11-16T03:00:35Z)
 - Retrospective: plan/retrospectives/0000014-model-ensemble-options-2026-11-16.md (2026-11-16T03:00:35Z)
+- CI duration: 166s (run 43795218773, 2026-11-16T03:00:57Z)
