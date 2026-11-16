@@ -52,5 +52,5 @@ def test_req_001_dockerignore_keeps_noise_out():
 def test_req_001_compiler_builds_and_leaves_in_one_layer():
     text = _dockerfile().replace("\\\n", " ")
     layer = next(line for line in text.splitlines() if "pip install" in line)
-    assert "apt-get install -y --no-install-recommends gcc" in layer
-    assert "apt-get purge -y --auto-remove gcc" in layer
+    assert "apt-get install -y --no-install-recommends gcc libc6-dev" in layer
+    assert "apt-get purge -y --auto-remove gcc libc6-dev" in layer

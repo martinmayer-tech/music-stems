@@ -22,7 +22,7 @@ Running the service needs a manual Python and FFmpeg install. A container withou
 `stem-service` owns a `Dockerfile` and two compose files at the repo root.
 
 - The image starts from `python:3.12-slim` and installs `ffmpeg`. It installs the `service` extra and `audio-separator[${STEMS_EXTRA}]`, with `cpu` as the default and `gpu` as the alternative.
-- The `pip install` layer adds `gcc` and removes it again, because the dependency `diffq` builds from source.
+- The `pip install` layer adds `gcc` and `libc6-dev` and removes them again, because the dependency `diffq` builds from source.
 - The build argument `AUDIO_SEPARATOR_VERSION` repeats the pin of `pyproject.toml`, and a test keeps them equal.
 - The image sets `STEMS_HOST=0.0.0.0`, `STEMS_DATA_DIR=/data`, and `STEMS_MODEL_DIR=/models`. It runs as a non-root user.
 - `compose.yaml` publishes `127.0.0.1:8000` only, and mounts the named volumes `models` and `data`. `compose.gpu.yaml` reserves an NVIDIA device.
