@@ -67,6 +67,7 @@ risk:
     - "A real Separator may ignore a changed output_dir"
     - "A restart during a job leaves it running until recover() runs"
     - "The service has no login, so a public STEMS_HOST exposes an open upload route"
+    - "A job fails in the image until audioread joins the dependencies (backlog 0000023)"
     - "The container binds to all interfaces, so a compose port without 127.0.0.1 exposes the same route"
 
 quality:

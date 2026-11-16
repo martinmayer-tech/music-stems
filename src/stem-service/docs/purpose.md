@@ -19,4 +19,5 @@ The `Dockerfile` and `compose.yaml` at the repo root package the service. Run `d
 - The compose file publishes the port on `127.0.0.1` only. The service has no login, so keep that prefix.
 - The build argument `STEMS_EXTRA` selects the `audio-separator` extra. It defaults to `cpu`. Run `docker compose -f compose.yaml -f compose.gpu.yaml up --build` for the GPU extra. The host needs the NVIDIA container toolkit.
 - The image is large because the engine pulls PyTorch. The first job downloads each model once.
+- A job fails in the image until `audioread` joins the dependencies. Backlog entry 0000023 tracks it.
 - CI builds the CPU image on every pull request. The project publishes no image.

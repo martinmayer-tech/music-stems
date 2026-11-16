@@ -14,4 +14,6 @@
 - The image sets `STEMS_HOST=0.0.0.0`. The default outside Docker stays `127.0.0.1`. Docker forwards a published port to the container address, so a loopback bind inside the container would never answer.
 - The root `pyproject.toml` installs `stem_core` only. The image sets `PYTHONPATH` to the three `src` folders so `python -m stem_service` finds the others.
 - `diffq`, a dependency of `audio-separator`, builds from source. The image installs `gcc` and `libc6-dev` in the layer that runs `pip install` and removes them in the same layer.
+- A job in the image ends `failed` with `No module named 'audioread'`. `audio-separator` 0.48.0 imports `audioread`, and `librosa` 1.0.1 no longer installs it. The chart approves no `audioread` row, so the image omits it. Backlog entry 0000023 holds the fix.
+- The CPU image is about 10 GB on an arm64 host, because the engine pulls the CUDA wheels of PyTorch.
 - The `AUDIO_SEPARATOR_VERSION` build argument repeats the `pyproject.toml` pin.

@@ -15,5 +15,6 @@ Risks:
 - An operator who sets `STEMS_HOST` to a public address exposes an open upload route. The default is `127.0.0.1`.
 - A crafted file name or stem name could reach a file outside the data folder. The upload route keeps the last part of a name, and the stem route serves only names in a job's outputs.
 - The container binds to all interfaces. `compose.yaml` publishes the port on `127.0.0.1`, and a test checks the line. A user who removes the prefix exposes the open upload route.
-- The image is large because the engine pulls PyTorch.
+- The image is large because the engine pulls PyTorch. It measured 10.8 GB on arm64.
+- A job in the image fails until `audioread` joins the dependencies. See backlog entry 0000023.
 - A `Dockerfile` pin that drifts from `pyproject.toml` installs another engine version. A test compares the two.
