@@ -9,6 +9,20 @@
 <body>
   <main>
     <h1>Stem separation</h1>
+
+    <form id="upload-form">
+      <label for="file">Audio file (.wav, .flac, .mp3, or .m4a)</label>
+      <input id="file" type="file" name="file" accept=".wav,.flac,.mp3,.m4a" required>
+      <label class="option">
+        <input type="checkbox" name="full_stems">
+        Full stems (drums, bass, and other, as well as vocals)
+      </label>
+      <button type="submit">Separate</button>
+      <p id="status" role="status"></p>
+    </form>
+
+    <h2>Jobs</h2>
+    <ul id="jobs"></ul>
   </main>
   <script src="/static/app.js"></script>
 </body>
