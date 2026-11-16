@@ -1,5 +1,5 @@
 ---
-version: "0.7.0"
+version: "0.8.0"
 feature: "0000001-stem-separation-service"
 updated: "15 Nov 2026"
 ---
@@ -11,6 +11,6 @@ updated: "15 Nov 2026"
 
 | Field | Value |
 |-------|-------|
-| Version | `0.7.0` |
+| Version | `0.8.0` |
 | Last feature | `0000001-stem-separation-service` |
 | Updated | `15 Nov 2026` |

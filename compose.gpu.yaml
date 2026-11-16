@@ -1,0 +1,14 @@
+# Add the GPU extra and one NVIDIA device. The host needs the NVIDIA container toolkit.
+# Run it with `docker compose -f compose.yaml -f compose.gpu.yaml up --build`.
+services:
+  stems:
+    build:
+      args:
+        STEMS_EXTRA: gpu
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
