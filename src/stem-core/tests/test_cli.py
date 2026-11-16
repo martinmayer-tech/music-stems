@@ -156,13 +156,16 @@ def test_req_003_the_ffmpeg_probe_returns_none_when_the_binary_is_absent(monkeyp
     assert cli.probe_ffmpeg() is None
 
 
-def test_req_004_models_lists_both_models_and_exits_zero(capsys):
+def test_req_004_models_lists_both_models_first_and_exits_zero(capsys):
     code = cli.main(["models"])
     out = capsys.readouterr().out
     assert code == 0
     assert VOCALS_MODEL in out
     assert FULL_STEMS_MODEL in out
-    assert len(out.splitlines()) == 2
+    assert out.splitlines()[:2] == [
+        f"vocals-and-instrumental: {VOCALS_MODEL}",
+        f"drums-bass-other: {FULL_STEMS_MODEL}",
+    ]
 
 
 def test_req_004_env_and_models_import_no_model_library():

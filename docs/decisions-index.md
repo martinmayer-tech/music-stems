@@ -2,7 +2,7 @@
 
 > Living document. Index of all ADRs across all features. Update it in place.
 
-Last updated: 0000012-web-front-end
+Last updated: 0000014-model-ensemble-options
 
 ## All architecture decision records
 
@@ -14,6 +14,7 @@ Last updated: 0000012-web-front-end
 | [ADR-0004](adr/0004-sqlite-job-store-and-pooled-worker.md) | SQLite job store and a worker with a model pool | 0000008-job-queue-worker | active | `stem-service` owns the `jobs` table, and one worker for each device loads each model once |
 | [ADR-0005](adr/0005-fastapi-api-on-loopback-with-no-login.md) | FastAPI HTTP API on the loopback address with no login | 0000010-http-api | active | `stem-service` serves four routes on `127.0.0.1`, adds no login, and serves stems only from a job's outputs |
 | [ADR-0006](adr/0006-plain-web-page-served-by-the-api.md) | Plain web page served by the API | 0000012-web-front-end | active | `stem-web` holds a build-free page and `stem-service` serves it at `/` |
+| [ADR-0007](adr/0007-allowlisted-model-options-in-stem-core.md) | Allowlisted model options in stem-core | 0000014-model-ensemble-options | active | `stem-core` holds the allowlists and checks each option before any model loads |
 
 ## Status definitions
 

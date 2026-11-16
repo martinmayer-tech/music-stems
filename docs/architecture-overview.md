@@ -2,7 +2,7 @@
 
 > Living document. Reflects current system state.
 
-Last updated: 0000012-web-front-end
+Last updated: 0000014-model-ensemble-options
 
 ## System summary
 
@@ -51,3 +51,4 @@ flowchart LR
 - ADR-0004: `stem-service` owns a SQLite `jobs` table. One worker thread for each device runs jobs through a pool that loads each model once.
 - ADR-0005: `stem-service` serves a FastAPI app on `127.0.0.1` with no login. A stem request resolves only against a job's stored outputs.
 - ADR-0006: `stem-web` holds a build-free HTML, CSS, and JavaScript page. `stem-service` serves it at `/` and under `/static`.
+- ADR-0007: `stem-core` holds the allowlists for the model options and checks them first. The command, the API, and the worker all call that check, so no model loads for a bad value.

@@ -2,7 +2,7 @@
 
 > Living document. Reflects current system state.
 
-Last updated: 0000012-web-front-end
+Last updated: 0000014-model-ensemble-options
 
 `stem-core` calls `audio-separator`. The `stems` command calls `split()` inside `stem-core`. `stem-service` imports `split()` from `stem-core` through its worker, and serves an HTTP API. It also serves the web page of `stem-web`, which calls that API.
 

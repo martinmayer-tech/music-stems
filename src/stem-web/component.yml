@@ -1,8 +1,8 @@
 # RAVINTIO Component Manifest
 id: "stem-web"
 name: "Stem web"
-feature: "0000012-web-front-end"
-version: "0.6.0"
+feature: "0000014-model-ensemble-options"
+version: "0.7.0"
 status: "active"
 type: "microfrontend"
 domain: "stem-separation"
@@ -48,11 +48,11 @@ data:
 
 scope:
   inScope:
-    - "The page files, static_dir(), an upload form, a polling job list, and per-stem players and links"
+    - "The page files, static_dir(), an upload form with three model selects, a polling job list, and per-stem players and links"
   outOfScope:
     - "A build step, a UI library, browser automation, a login, cancel, and delete"
   deferred:
-    - "Model choice waits for step 7"
+    - "none"
 
 risk:
   level: "medium"
@@ -62,7 +62,7 @@ risk:
 
 quality:
   testCoverage:
-    unit: 18
+    unit: 25
     integration: 0
     e2e: 0
   techDebt: []
@@ -71,11 +71,11 @@ quality:
 pipeline:
   templateVersion: "1.0.0"
   featureMode: "greenfield"
-  domainKnowledgePath: "plan/_archive/0000012-web-front-end-2026-11-16"
+  domainKnowledgePath: "plan/_archive/0000014-model-ensemble-options-2026-11-16"
 
 metadata:
   createdAt: "2026-11-15T20:57:56Z"
-  updatedAt: "2026-11-16T01:36:00Z"
+  updatedAt: "2026-11-16T02:27:02Z"
   createdBy: "agent"
   lastModifiedBy: "agent"
   skill: "ravintio-implement"

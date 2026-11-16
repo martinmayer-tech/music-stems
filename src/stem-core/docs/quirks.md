@@ -10,4 +10,7 @@
 - `stems env` imports `torch` inside `probe_device()` and falls back to `cpu` on any error. The package does not depend on `torch` directly.
 - `pyproject.toml` packages `stem_core` from `src/stem-core` with `package-dir`. The pytest `pythonpath` setting does the same job for tests. Later steps add their own packages to `packages`.
 - `tests/test_cli.py` runs one subprocess with only `PYTHONPATH` set, so the check sees a fresh interpreter.
+- A preset replaces the pass 1 model inside `audio-separator`. `split()` builds a second separator without the preset for pass 2, because the preset belongs to pass 1 only.
+- The preset names and the stem names of an ensemble come from the 0.48.0 wheel. No test runs a real preset. The `slow` test covers the default models only.
+- `htdemucs_6s.yaml` writes guitar and piano stems that the guide calls weaker.
 - `audio-separator` reports pass 1 stems in its own order, so `split()` sorts them to `vocals.wav` then `instrumental.wav`.

@@ -1,8 +1,8 @@
 # RAVINTIO Component Manifest
 id: "stem-service"
 name: "Stem service"
-feature: "0000012-web-front-end"
-version: "0.6.0"
+feature: "0000014-model-ensemble-options"
+version: "0.7.0"
 status: "active"
 type: "microservice"
 domain: "stem-separation"
@@ -57,7 +57,7 @@ scope:
   outOfScope:
     - "A login, cancel, delete, caller model choice, and a broker"
   deferred:
-    - "Caller model choice and ensembles wait for step 7"
+    - "none"
 
 risk:
   level: "low"
@@ -68,7 +68,7 @@ risk:
 
 quality:
   testCoverage:
-    unit: 65
+    unit: 76
     integration: 0
     e2e: 0
   techDebt: []
@@ -81,11 +81,11 @@ quality:
 pipeline:
   templateVersion: "1.0.0"
   featureMode: "greenfield"
-  domainKnowledgePath: "plan/_archive/0000010-http-api-2026-11-16"
+  domainKnowledgePath: "plan/_archive/0000014-model-ensemble-options-2026-11-16"
 
 metadata:
   createdAt: "2026-11-15T20:57:56Z"
-  updatedAt: "2026-11-16T01:36:00Z"
+  updatedAt: "2026-11-16T02:27:02Z"
   createdBy: "agent"
   lastModifiedBy: "agent"
   skill: "ravintio-implement"
