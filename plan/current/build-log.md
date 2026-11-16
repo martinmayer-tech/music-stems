@@ -87,3 +87,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | MCP calls | `0` |
 | Parallel task batches | `0` |
 | Notes | none |
+- In progress: U1-upload (2026-11-16T00:46:34Z)
+- RED: U1-upload (2026-11-16T00:46:35Z)
+- GREEN: U1-upload (2026-11-16T00:46:55Z)
+- Done: U1-upload (content, inline, none, 2026-11-16T00:46:55Z)
+- Tests run: REQ-001: src/stem-service/tests/test_api_upload.py (2026-11-16T00:46:55Z)
