@@ -1,8 +1,8 @@
 # RAVINTIO Component Manifest
 id: "stem-core"
 name: "Stem core"
-feature: "0000004-separation-core"
-version: "0.2.0"
+feature: "0000006-command-line-interface"
+version: "0.3.0"
 status: "active"
 type: "component-pack"
 domain: "stem-separation"
@@ -12,8 +12,7 @@ systemContext: "Called by stem-service to split audio and by the command line. C
 responsibilities:
   - "Holds the two-pass separation function and the stems command."
 
-exceptions:
-  - "The stems command arrives in step 3. This step holds the split function only."
+exceptions: []
 
 stack:
   language: "python"
@@ -32,8 +31,10 @@ stack:
 contract:
   inputs:
     - "split(mix_path, out_dir, full_stems, separator_factory)"
+    - "stems split, stems env, and stems models"
   outputs:
     - "A list of absolute WAV paths"
+    - "One output path per line on standard output"
   consumedBy: []
   consumes: []
   breakingChangePolicy: "requires-adr"
@@ -46,35 +47,37 @@ data:
 scope:
   inScope:
     - "The two-pass split function with the pinned separation extra"
+    - "The stems command with the split, env, and models subcommands"
   outOfScope:
-    - "The stems command, caller model choice, and ensembles"
+    - "Caller model choice and ensembles"
   deferred:
-    - "The stems command waits for step 3"
     - "Caller model choice and ensembles wait for step 7"
 
 risk:
   level: "medium"
   items:
     - "The fake separator in unit tests can drift from the real one"
+    - "Packaging stem_core changes the CI install"
 
 quality:
   testCoverage:
-    unit: 21
+    unit: 38
     integration: 0
     e2e: 0
   techDebt: []
   quirks:
     - "tests/test_ci_job.py checks the CI workflow file"
     - "Pass 2 renames its vocals stem and split() deletes it"
+    - "stems env falls back to cpu when torch is absent"
 
 pipeline:
   templateVersion: "1.0.0"
   featureMode: "greenfield"
-  domainKnowledgePath: "plan/_archive/0000004-separation-core-2026-11-15"
+  domainKnowledgePath: "plan/_archive/0000006-command-line-interface-2026-11-15"
 
 metadata:
   createdAt: "2026-11-15T20:57:56Z"
-  updatedAt: "2026-11-15T22:05:51Z"
+  updatedAt: "2026-11-15T22:57:51Z"
   createdBy: "agent"
   lastModifiedBy: "agent"
   skill: "ravintio-implement"

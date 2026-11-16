@@ -2,10 +2,10 @@
 
 > Living document. Reflects current system state.
 
-Last updated: 0000004-separation-core
+Last updated: 0000006-command-line-interface
 
 | Component | Type | Purpose | Status |
 |-----------|------|---------|--------|
-| [stem-core](../src/stem-core/docs/purpose.md) | component-pack | The two-pass separation function and the `stems` command | active (`split()` built, command planned) |
+| [stem-core](../src/stem-core/docs/purpose.md) | component-pack | The two-pass separation function and the `stems` command | active (`split()` and the `stems` command built) |
 | [stem-service](../src/stem-service/docs/purpose.md) | microservice | The job store, the worker, and the HTTP API | planned |
 | [stem-web](../src/stem-web/docs/purpose.md) | microfrontend | The web page that the API serves | planned |
