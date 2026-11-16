@@ -47,3 +47,10 @@ def test_req_001_dockerignore_keeps_noise_out():
     names = (ROOT / ".dockerignore").read_text(encoding="utf-8").split()
     for name in (".git", "plan", "data"):
         assert name in names
+
+
+def test_req_001_compiler_builds_and_leaves_in_one_layer():
+    text = _dockerfile().replace("\\\n", " ")
+    layer = next(line for line in text.splitlines() if "pip install" in line)
+    assert "apt-get install -y --no-install-recommends gcc" in layer
+    assert "apt-get purge -y --auto-remove gcc" in layer

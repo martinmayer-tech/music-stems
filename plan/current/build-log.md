@@ -109,3 +109,4 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Done: U4-docs (content, inline, none, 2026-11-16T03:12:58Z)
 - Deviation: the docs unit had no RED line when it ran. The agent wrote test_docker_docs.py afterwards, and it failed on the commit before the docs and passed on HEAD (2026-11-16T03:12:58Z)
 - Tests run: U4-docs: src/stem-service/tests/test_docker_docs.py (2026-11-16T03:12:58Z)
+- Deviation: the first local image build failed because diffq needs gcc. The Dockerfile adds and removes gcc in the pip install layer. gcc is a build-only tool, and no chart row lists it. (2026-11-16T03:13:30Z)

@@ -18,7 +18,13 @@ RUN useradd --create-home --uid 1000 stems \
 WORKDIR /app
 COPY pyproject.toml ./
 COPY src ./src
-RUN pip install --no-cache-dir ".[service]" "audio-separator[${STEMS_EXTRA}]==${AUDIO_SEPARATOR_VERSION}"
+# diffq, a dependency of audio-separator, has no wheel and builds from source.
+# The same layer installs gcc and removes it, so the compiler stays out of the image.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends gcc \
+    && pip install --no-cache-dir ".[service]" "audio-separator[${STEMS_EXTRA}]==${AUDIO_SEPARATOR_VERSION}" \
+    && apt-get purge -y --auto-remove gcc \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV PYTHONPATH=/app/src/stem-core:/app/src/stem-service:/app/src/stem-web \
     STEMS_HOST=0.0.0.0 \

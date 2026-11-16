@@ -71,7 +71,7 @@ risk:
 
 quality:
   testCoverage:
-    unit: 90
+    unit: 91
     integration: 0
     e2e: 0
   techDebt: []

@@ -13,4 +13,5 @@
 - Tests that start a worker use a poll interval of 0.01 seconds and wait up to 10 seconds for a job.
 - The image sets `STEMS_HOST=0.0.0.0`. The default outside Docker stays `127.0.0.1`. Docker forwards a published port to the container address, so a loopback bind inside the container would never answer.
 - The root `pyproject.toml` installs `stem_core` only. The image sets `PYTHONPATH` to the three `src` folders so `python -m stem_service` finds the others.
+- `diffq`, a dependency of `audio-separator`, builds from source. The image installs `gcc` in the layer that runs `pip install` and removes it in the same layer.
 - The `AUDIO_SEPARATOR_VERSION` build argument repeats the `pyproject.toml` pin.
