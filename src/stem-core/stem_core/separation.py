@@ -63,7 +63,8 @@ def validate_options(
     if single_stem is not None:
         if single_stem not in SINGLE_STEMS:
             raise _reject("single stem", single_stem, SINGLE_STEMS)
-        if single_stem in SIX_STEM_EXTRAS.values() and (model or FULL_STEMS_MODEL) != SIX_STEM_MODEL:
+        needs_six = single_stem in SIX_STEM_EXTRAS.values()
+        if needs_six and (model or FULL_STEMS_MODEL) != SIX_STEM_MODEL:
             raise ValueError(f"single stem {single_stem!r} needs the model {SIX_STEM_MODEL}")
 
 
@@ -143,9 +144,7 @@ def split(
     if ensemble_preset is None:
         separator = factory(str(out), "WAV", resolve_model_dir())
     else:
-        separator = factory(
-            str(out), "WAV", resolve_model_dir(), ensemble_preset=ensemble_preset
-        )
+        separator = factory(str(out), "WAV", resolve_model_dir(), ensemble_preset=ensemble_preset)
 
     separator.load_model(model_filename=VOCALS_MODEL)
     reported_first = separator.separate(str(mix), PASS_ONE_NAMES)

@@ -71,11 +71,15 @@ def test_req_001_allowlists_hold_the_listed_values():
 
 
 def test_req_001_the_six_stem_model_returns_guitar_and_piano(mix, tmp_path):
-    result = split(
-        mix, tmp_path / "out", True, FakeSeparator, model="htdemucs_6s.yaml"
-    )
+    result = split(mix, tmp_path / "out", True, FakeSeparator, model="htdemucs_6s.yaml")
     assert stems_of(result) == [
-        "vocals", "instrumental", "drums", "bass", "other", "guitar", "piano"
+        "vocals",
+        "instrumental",
+        "drums",
+        "bass",
+        "other",
+        "guitar",
+        "piano",
     ]
     assert all(Path(p).exists() for p in result)
     assert FakeSeparator.instances[0].models == [VOCALS_MODEL, "htdemucs_6s.yaml"]
@@ -121,9 +125,7 @@ def test_req_001_every_listed_value_validates():
 
 
 def test_req_001_a_preset_goes_to_pass_one_and_pass_two_gets_none(mix, tmp_path):
-    split(
-        mix, tmp_path / "out", True, FakeSeparator, ensemble_preset="vocal_balanced"
-    )
+    split(mix, tmp_path / "out", True, FakeSeparator, ensemble_preset="vocal_balanced")
     first, second = FakeSeparator.instances
     assert first.ensemble_preset == "vocal_balanced"
     assert first.models == [VOCALS_MODEL]
