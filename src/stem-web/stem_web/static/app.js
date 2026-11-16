@@ -7,6 +7,12 @@ function hasUnfinishedJob(jobs) {
   return jobs.some((job) => UNFINISHED.includes(job.status));
 }
 
+const OPTION_NAMES = ["model", "ensemble_preset", "single_stem"];
+
+function optionFields(values) {
+  return OPTION_NAMES.filter((name) => values[name]).map((name) => [name, values[name]]);
+}
+
 function stemLinks(jobId, stems) {
   return (stems || []).map((name) => ({
     name: name,
@@ -87,6 +93,11 @@ if (typeof document !== "undefined") {
     const data = new FormData();
     data.append("file", form.elements.file.files[0]);
     data.append("full_stems", form.elements.full_stems.checked ? "true" : "false");
+    const chosen = {};
+    OPTION_NAMES.forEach((name) => {
+      chosen[name] = form.elements[name].value;
+    });
+    optionFields(chosen).forEach(([name, value]) => data.append(name, value));
     status.textContent = "Sending the file.";
     try {
       const response = await fetch("/jobs", { method: "POST", body: data });
@@ -107,5 +118,5 @@ if (typeof document !== "undefined") {
 }
 
 if (typeof module !== "undefined") {
-  module.exports = { stemLinks, hasUnfinishedJob };
+  module.exports = { stemLinks, hasUnfinishedJob, optionFields };
 }

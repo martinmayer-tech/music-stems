@@ -20,8 +20,16 @@ SeparatorFactory = Callable[[str, str, str], Any]
 class PooledSeparator:
     """The separator that split() sees. It hands each model request to the pool."""
 
-    def __init__(self, pool: ModelPool, output_dir: str, output_format: str, model_dir: str):
+    def __init__(
+        self,
+        pool: ModelPool,
+        output_dir: str,
+        output_format: str,
+        model_dir: str,
+        ensemble_preset: str | None = None,
+    ):
         self._pool = pool
+        self._ensemble_preset = ensemble_preset
         self._output_dir = output_dir
         self._output_format = output_format
         self._model_dir = model_dir
@@ -30,7 +38,11 @@ class PooledSeparator:
     def load_model(self, model_filename: str) -> None:
         """Select a model. The pool loads it on its first request only."""
         self._current = self._pool.acquire(
-            model_filename, self._output_dir, self._output_format, self._model_dir
+            model_filename,
+            self._output_dir,
+            self._output_format,
+            self._model_dir,
+            self._ensemble_preset,
         )
 
     def separate(self, *args: Any, **kwargs: Any) -> Any:
@@ -39,28 +51,45 @@ class PooledSeparator:
 
 
 class ModelPool:
-    """Builds one separator for each model and keeps it loaded."""
+    """Builds one separator for each model and preset pair and keeps it loaded."""
 
     def __init__(self, base_factory: SeparatorFactory | None = None) -> None:
         self._base_factory = base_factory or default_separator_factory
-        self._separators: dict[str, Any] = {}
+        self._separators: dict[tuple[str, str | None], Any] = {}
 
     def acquire(
-        self, model_filename: str, output_dir: str, output_format: str, model_dir: str
+        self,
+        model_filename: str,
+        output_dir: str,
+        output_format: str,
+        model_dir: str,
+        ensemble_preset: str | None = None,
     ) -> Any:
-        """Return the loaded separator for a model, pointed at output_dir."""
-        separator = self._separators.get(model_filename)
+        """Return the loaded separator for a model and preset, pointed at output_dir."""
+        key = (model_filename, ensemble_preset)
+        separator = self._separators.get(key)
         if separator is None:
-            separator = self._base_factory(output_dir, output_format, model_dir)
+            if ensemble_preset is None:
+                separator = self._base_factory(output_dir, output_format, model_dir)
+            else:
+                separator = self._base_factory(
+                    output_dir, output_format, model_dir, ensemble_preset=ensemble_preset
+                )
             separator.load_model(model_filename=model_filename)
-            self._separators[model_filename] = separator
+            self._separators[key] = separator
         else:
             separator.output_dir = output_dir
         return separator
 
-    def factory(self, output_dir: str, output_format: str, model_dir: str) -> PooledSeparator:
+    def factory(
+        self,
+        output_dir: str,
+        output_format: str,
+        model_dir: str,
+        ensemble_preset: str | None = None,
+    ) -> PooledSeparator:
         """Match the separator factory signature that split() expects."""
-        return PooledSeparator(self, output_dir, output_format, model_dir)
+        return PooledSeparator(self, output_dir, output_format, model_dir, ensemble_preset)
 
 
 def _error_line(exc: BaseException) -> str:
@@ -128,7 +157,9 @@ class Worker:
     def _run_job(self, job: Job) -> None:
         out_dir = job_output_dir(job.id, self.data_dir)
         try:
-            paths = self._split(job.input_path, out_dir, job.full_stems, self._pool.factory)
+            paths = self._split(
+                job.input_path, out_dir, job.full_stems, self._pool.factory, **job.options
+            )
         except Exception as exc:  # noqa: BLE001 - any failure ends this job and no other
             self.store.mark_failed(job.id, _error_line(exc))
         else:
