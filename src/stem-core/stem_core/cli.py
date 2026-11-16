@@ -10,7 +10,13 @@ import sys
 from collections.abc import Callable, Sequence
 from typing import Any, NamedTuple
 
-from stem_core.separation import FULL_STEMS_MODEL, VOCALS_MODEL
+from stem_core.separation import (
+    ENSEMBLE_PRESETS,
+    FULL_STEMS_MODEL,
+    PASS_TWO_MODELS,
+    SINGLE_STEMS,
+    VOCALS_MODEL,
+)
 
 DEFAULT_OUTPUT_DIR = "./stems-out"
 FFMPEG_TIMEOUT_SECONDS = 10
@@ -82,6 +88,18 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="also split the instrumental into drums, bass, and other",
     )
+    split_parser.add_argument(
+        "--model",
+        help=f"the pass 2 model, one of: {', '.join(PASS_TWO_MODELS)}",
+    )
+    split_parser.add_argument(
+        "--ensemble-preset",
+        help=f"the pass 1 ensemble preset, one of: {', '.join(ENSEMBLE_PRESETS)}",
+    )
+    split_parser.add_argument(
+        "--single-stem",
+        help=f"write only this stem and delete the others, one of: {', '.join(SINGLE_STEMS)}",
+    )
 
     sub.add_parser("env", help="report the Python version, FFmpeg, and the device")
     sub.add_parser("models", help="list the models that split uses")
@@ -98,7 +116,16 @@ def _run_split(args: argparse.Namespace, split_func: Callable[..., list[str]] | 
     if split_func is None:
         from stem_core.separation import split as split_func
     try:
-        paths = split_func(args.file, args.output_dir, full_stems=args.full_stems)
+        options = {
+            name: value
+            for name, value in (
+                ("model", args.model),
+                ("ensemble_preset", args.ensemble_preset),
+                ("single_stem", args.single_stem),
+            )
+            if value is not None
+        }
+        paths = split_func(args.file, args.output_dir, full_stems=args.full_stems, **options)
     except ModuleNotFoundError as error:
         return _error(f"{error}. Install the separation extra: pip install '.[separation]'")
     except Exception as error:
@@ -118,6 +145,9 @@ def _run_env(probes: Probes) -> int:
 def _run_models() -> int:
     print(f"vocals-and-instrumental: {VOCALS_MODEL}")
     print(f"drums-bass-other: {FULL_STEMS_MODEL}")
+    print(f"pass-2-models: {', '.join(PASS_TWO_MODELS)}")
+    print(f"ensemble-presets: {', '.join(ENSEMBLE_PRESETS)}")
+    print(f"single-stems: {', '.join(SINGLE_STEMS)}")
     return 0
 
 
