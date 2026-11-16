@@ -45,7 +45,7 @@ Retrospective: `plan/retrospectives/0000010-http-api-2026-11-16.md`
 | `Blocked:` stops | 0 | 1 | ok |
 | Mid-pipeline design changes | 0 | 1 | ok |
 | Human corrections at gates | 0 | 2 | ok |
-| Longest CI run (seconds) | 0 | 420 | ok |
+| Longest CI run (seconds) | 127 (run 43785840591) | 420 | ok |
 
 Breaches: 0. The gate reports and does not block. Counts come from marker lines only.
 
