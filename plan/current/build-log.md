@@ -57,3 +57,19 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Scope Lock complete. All four scenario paths captured.
 - Baseline: recorded in plan/current/baseline-failures.md (2026-11-16T01:31:44Z)
 - Complete: P0 (2026-11-16T01:31:44Z)
+
+### P1: Plan
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-16T01:31:44Z` |
+| End | `2026-11-16T01:33:33Z` |
+| Wall clock | `2` |
+| Model tier | primary |
+| Skills loaded | ravintio-plan |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- Schema: none (plan check)
+- Complete: P1 (2026-11-16T01:33:33Z)
