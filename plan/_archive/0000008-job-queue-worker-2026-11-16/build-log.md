@@ -1,0 +1,154 @@
+---
+title: "Build Log - 0000008-job-queue-worker"
+summary: "Working record of the pipeline run, maintained by the orchestrator."
+---
+# Build Log - 0000008-job-queue-worker
+
+> Created at discovery (P0). Appended by the orchestrator at each phase boundary. Survives session changes.
+
+## Header
+
+| Field | Value |
+|-------|-------|
+| Feature ID | `0000008-job-queue-worker` |
+| Pipeline start | `2026-11-15T23:54:56Z` |
+| Tool | `claude-code` |
+| Primary model | `claude-sonnet-5-5` |
+| Cheaper model | `claude-haiku-5-5` |
+| Run speed | `standard` |
+
+---
+
+## Phase Log
+
+### P0: Discovery
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T23:54:56Z` |
+| End | `2026-11-15T23:55:40Z` |
+| Wall clock | `1` |
+| Model tier | primary |
+| Skills loaded | ravintio-orchestrator |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | Step 4 of initiative 0000001 |
+
+- Migration pending: 0007
+- Migration pending: 0009
+- Run mode: autonomous (2026-11-15T23:54:56Z)
+- Run speed: standard (2026-11-15T23:54:56Z)
+- Adoption mode: standard-iterative (signal: `docs/about.md` at 0.3.0, `src/` present, steps 1 to 3 archived)
+- Decision applied (initiative chart): Whether the product version tracks the pack version
+- Decision applied (initiative chart): Which Python version to target
+- Decision applied (initiative chart): A step finds work outside its scope
+- Decision applied (initiative chart): Tests need a real model
+- Decision applied (initiative chart): Which queue backend to use
+- Decision applied (initiative chart): Where the service keeps its data
+- Queue: no items name step 4
+- Bump: minor (chart row), planned version 0.4.0
+- Scope Lock (happy path): A caller adds two jobs. The worker runs them in turn, and each ends as `done` with its output paths. [source: draft-accepted (initiative)]
+- Scope Lock (first-run path): `STEMS_DATA_DIR` holds no file, so the store creates the folder, the file, and the table. [source: draft-accepted (initiative)]
+- Scope Lock (error path): A missing input file or a separator failure ends the job as `failed` with one error line. The worker goes on. [source: draft-accepted (initiative)]
+- Scope Lock (cross-session continuity): A restart returns a `running` job to `queued`, and the worker runs every queued job. [source: draft-accepted (initiative)]
+- Scope Lock complete. All four scenario paths captured.
+- Schema: step 4 row `jobs` (additive) applies as charted
+- Complete: P0 (2026-11-15T23:55:40Z)
+
+### P1: Plan
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T23:56:28Z` |
+| End | `2026-11-15T23:57:35Z` |
+| Wall clock | `1` |
+| Model tier | primary |
+| Skills loaded | ravintio-plan |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- Complete: P1 (2026-11-15T23:57:35Z)
+
+### P2: Implement
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-15T23:57:57Z` |
+| End | `2026-11-16T00:22:07Z` |
+| Wall clock | `24` |
+| Model tier | primary |
+| Skills loaded | ravintio-implement |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- In progress: U1-store (2026-11-15T23:57:57Z)
+- RED: U1-store (2026-11-15T23:59:02Z)
+- GREEN: U1-store (2026-11-15T23:59:02Z)
+- Done: U1-store (content, inline, none, 2026-11-15T23:59:02Z)
+- Tests run: REQ-001, REQ-002, REQ-004: src/stem-service/tests/test_jobs.py (2026-11-15T23:59:02Z)
+- Rework: REQ-004: the import check ran a subprocess with no PYTHONPATH, so it failed on the import and not on the assertion. The test now sets PYTHONPATH (2026-11-15T23:59:02Z)
+- In progress: U2-worker (2026-11-15T23:59:02Z)
+- RED: U2-worker (2026-11-15T23:59:27Z)
+- GREEN: U2-worker (2026-11-15T23:59:27Z)
+- Done: U2-worker (content, inline, none, 2026-11-15T23:59:27Z)
+- Tests run: REQ-002, REQ-003, REQ-004: src/stem-service/tests/test_worker.py (2026-11-15T23:59:27Z)
+- In progress: U3-docs (2026-11-15T23:59:27Z)
+- RED: U3-docs (2026-11-16T00:00:04Z)
+- GREEN: U3-docs (2026-11-16T00:00:04Z)
+- Done: U3-docs (content, inline, none, 2026-11-16T00:00:04Z)
+- Tests run: full suite: 0 new failures, 57 inherited failures (2026-11-16T00:22:07Z)
+- Complete: P2 (2026-11-16T00:22:07Z)
+
+### P3: Validate and Accept
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-16T00:22:07Z` |
+| End | `2026-11-16T00:22:27Z` |
+| Wall clock | `0` |
+| Model tier | primary |
+| Skills loaded | ravintio-validate-and-accept |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- Docs edit pass: prose-check exit 0 on cycle 1, no subagent dispatched (2026-11-16T00:22:07Z)
+- Archetype gates: none installed
+- Complete: P3 (2026-11-16T00:22:27Z)
+
+### P4: Ship
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-16T00:22:35Z` |
+| End | `2026-11-16T00:22:56Z` |
+| Wall clock | `0` |
+| Model tier | primary |
+| Skills loaded | ravintio-ship |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- Postmortem: plan/postmortems/2026-11-16-subprocess-import-without-pythonpath.md REQ-004 (2026-11-16T00:22:56Z)
+- Complete: P4 (2026-11-16T00:22:56Z)
+
+- CI duration: 144s (run 43780075147, 2026-11-16T00:26:04Z)
+
+---
+
+## Summary (filled at ship, P4)
+
+| Metric | Value |
+|--------|-------|
+| Total phases completed | `5` |
+| Total wall clock | `28` |
+| Total agents spawned | `0` |
+| Total MCP calls | `0` |
+| Phases using parallelism | `0` |
+| Primary tier agent calls | `0` |
+| Cheaper tier agent calls | `0` |
+| Self-corrections | `1` |
+| Phases skipped | `none` |

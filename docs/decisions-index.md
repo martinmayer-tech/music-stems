@@ -2,7 +2,7 @@
 
 > Living document. Index of all ADRs across all features. Update it in place.
 
-Last updated: 0000006-command-line-interface
+Last updated: 0000008-job-queue-worker
 
 ## All architecture decision records
 
@@ -11,6 +11,7 @@ Last updated: 0000006-command-line-interface
 | [ADR-0001](adr/0001-python-tooling.md) | Python tooling and layout | 0000002-python-scaffold | active | One root `pyproject.toml` with `pytest` and `ruff`, and one package folder for each component |
 | [ADR-0002](adr/0002-separator-injection-and-pin.md) | Separator injection, lazy import, and a pinned extra | 0000004-separation-core | active | `split()` builds its separator through a factory, and the library installs from a pinned extra |
 | [ADR-0003](adr/0003-stems-command-and-packaging.md) | The stems command and the stem_core package install | 0000006-command-line-interface | active | The command uses `argparse` with injectable probes, and a console script installs the packaged `stem_core` |
+| [ADR-0004](adr/0004-sqlite-job-store-and-pooled-worker.md) | SQLite job store and a worker with a model pool | 0000008-job-queue-worker | active | `stem-service` owns the `jobs` table, and one worker for each device loads each model once |
 
 ## Status definitions
 
