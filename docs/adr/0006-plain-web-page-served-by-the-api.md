@@ -1,7 +1,7 @@
 ---
 title: "ADR 0006: Plain web page served by the API"
 summary: "stem-web holds a build-free HTML, CSS, and JavaScript page that stem-service serves at its root."
-status: "proposed"
+status: "accepted"
 component: "stem-web"
 version: "0.6.0"
 ---
