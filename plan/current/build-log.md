@@ -79,8 +79,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-16T00:46:07Z` |
-| End | `` |
-| Wall clock | `` |
+| End | `2026-11-16T01:19:27Z` |
+| Wall clock | `33` |
 | Model tier | primary |
 | Skills loaded | ravintio-implement |
 | Agents spawned | `0` |
@@ -106,3 +106,5 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - RED: U4-docs (2026-11-16T00:48:53Z)
 - GREEN: U4-docs (2026-11-16T00:48:53Z)
 - Done: U4-docs (content, inline, none, 2026-11-16T00:48:53Z)
+- Tests run: full suite: 395 passed, 57 failed, 0 new, 59 inherited failures (2026-11-16T01:19:27Z)
+- Complete: P2 (2026-11-16T01:19:27Z)
