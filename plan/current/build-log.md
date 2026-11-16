@@ -80,7 +80,7 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-16T03:10:23Z` |
-| End | `{{pending}}` |
+| End | `2026-11-16T04:02:32Z` |
 | Wall clock | `0` |
 | Model tier | primary |
 | Skills loaded | ravintio-implement |
@@ -112,3 +112,19 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Deviation: the first local image build failed because diffq needs gcc. The Dockerfile adds and removes gcc in the pip install layer. gcc is a build-only tool, and no chart row lists it. (2026-11-16T03:13:30Z)
 - Backlog: pulled in entry 0000017, filed 0000023 and 0000024, and rebuilt the index (2026-11-16T03:21:27Z)
 - Baseline: 62 failures recorded in plan/current/baseline-failures.md after the clean-clone run ended (2026-11-16T03:41:49Z)
+- Tests run: full suite: 174 pytest passed, pack suite 0 new failures, 62 inherited failures (2026-11-16T04:02:32Z)
+- Complete: P2 (2026-11-16T04:02:32Z)
+
+### P3: Validate and Accept
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-16T04:02:32Z` |
+| End | `{{pending}}` |
+| Wall clock | `0` |
+| Model tier | primary |
+| Skills loaded | ravintio-validate-and-accept |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
