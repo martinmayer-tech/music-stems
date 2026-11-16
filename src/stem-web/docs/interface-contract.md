@@ -10,7 +10,7 @@ The `stem_web` package exposes `__version__` and `static_dir()`.
 
 | File | Meaning |
 |------|---------|
-| `index.html` | The upload form with a file input, a `full_stems` checkbox, and a submit button. It also holds the job list `#jobs` and the status line `#status` |
+| `index.html` | The upload form with a file input, a `full_stems` checkbox, three selects named `model`, `ensemble_preset`, and `single_stem`, and a submit button. It also holds the job list `#jobs` and the status line `#status` |
 | `app.js` | Posts the upload, reads `GET /jobs`, and renders each job |
 | `style.css` | Styles the page |
 
@@ -22,4 +22,6 @@ The `stem_web` package exposes `__version__` and `static_dir()`.
 - It writes server text with `textContent` and never `innerHTML`.
 - `stemLinks(jobId, stems)` returns one `{name, url}` entry for each stem name. It encodes the id and the name with `encodeURIComponent`.
 - A `done` job shows one `audio` player and one download link for each stem. Any other status shows none.
-- When `module` exists, the script exports `stemLinks` and `hasUnfinishedJob` so that `node` can test them.
+- `optionFields(values)` returns a `[name, value]` pair for each select that holds a non-empty value. The upload sends only those fields.
+- Each select lists the values of its allowlist in `stem_core.separation`. A test keeps the two in line.
+- When `module` exists, the script exports `stemLinks`, `hasUnfinishedJob`, and `optionFields` so that `node` can test them.
