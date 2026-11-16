@@ -2,9 +2,9 @@
 
 > Living document. Reflects current system state.
 
-Last updated: 0000008-job-queue-worker
+Last updated: 0000010-http-api
 
-`stem-core` calls `audio-separator`. The `stems` command calls `split()` inside `stem-core`. `stem-service` imports `split()` from `stem-core` through its worker. Later steps add the other edges.
+`stem-core` calls `audio-separator`. The `stems` command calls `split()` inside `stem-core`. `stem-service` imports `split()` from `stem-core` through its worker, and serves an HTTP API that the web page calls in step 6.
 
 ```mermaid
 flowchart LR

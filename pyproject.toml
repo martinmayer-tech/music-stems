@@ -12,7 +12,9 @@ description = "A self-hosted stem separation service."
 requires-python = ">=3.10"
 
 [project.optional-dependencies]
-dev = ["pytest", "ruff"]
+dev = ["pytest", "ruff", "httpx"]
+# The HTTP API of stem-service.
+service = ["fastapi", "uvicorn", "python-multipart"]
 # The CPU build of the separation engine, at one exact version.
 separation = ["audio-separator[cpu]==0.48.0"]
 
