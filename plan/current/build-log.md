@@ -96,3 +96,6 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Done: U2-worker (content, inline, none, 2026-11-15T23:59:27Z)
 - Tests run: REQ-002, REQ-003, REQ-004: src/stem-service/tests/test_worker.py (2026-11-15T23:59:27Z)
 - In progress: U3-docs (2026-11-15T23:59:27Z)
+- RED: U3-docs (2026-11-16T00:00:04Z)
+- GREEN: U3-docs (2026-11-16T00:00:04Z)
+- Done: U3-docs (content, inline, none, 2026-11-16T00:00:04Z)
