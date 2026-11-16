@@ -1,7 +1,7 @@
 ---
 title: "ADR 0007: Allowlisted model options in stem-core"
 summary: "stem-core holds the allowlists and validates each option, and every entry point calls it before any model loads."
-status: "proposed"
+status: "accepted"
 component: "stem-core"
 version: "0.7.0"
 ---
