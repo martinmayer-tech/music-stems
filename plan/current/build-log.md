@@ -106,5 +106,25 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - RED: U4-docs (2026-11-16T00:48:53Z)
 - GREEN: U4-docs (2026-11-16T00:48:53Z)
 - Done: U4-docs (content, inline, none, 2026-11-16T00:48:53Z)
+- Rework: REQ-003: the traversal test sent a plain `..` in the URL, and the HTTP client removed it. The test now sends it encoded (2026-11-16T00:47:22Z)
 - Tests run: full suite: 395 passed, 57 failed, 0 new, 59 inherited failures (2026-11-16T01:19:27Z)
 - Complete: P2 (2026-11-16T01:19:27Z)
+
+### P3: Validate and Accept
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-16T01:19:32Z` |
+| End | `2026-11-16T01:20:08Z` |
+| Wall clock | `1` |
+| Model tier | primary |
+| Skills loaded | ravintio-validate-and-accept |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- Postmortem: plan/postmortems/2026-11-16-url-dot-segment-in-traversal-test.md REQ-003 (2026-11-16T01:20:08Z)
+- Docs edit pass: prose-check exit 0 on cycle 1, no subagent dispatched (2026-11-16T01:20:08Z)
+- Archetype gates: none installed
+- Verification: all four criteria verified by execution (plan/current/verification-report.md)
+- Complete: P3 (2026-11-16T01:20:08Z)
