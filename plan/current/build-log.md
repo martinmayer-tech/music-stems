@@ -40,3 +40,18 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Run mode: autonomous (2026-11-16T00:33:13Z)
 - Run speed: standard (2026-11-16T00:33:13Z)
 - Adoption mode: standard-iterative (signal: `docs/about.md` at 0.4.0, `src/` present, steps 1 to 4 archived)
+- Decision applied (initiative chart): Whether the product version tracks the pack version
+- Decision applied (initiative chart): Which Python version to target
+- Decision applied (initiative chart): A step finds work outside its scope
+- Decision applied (initiative chart): Tests need a real model
+- Decision applied (initiative chart): Whether the API needs a login
+- Decision applied (initiative chart): Which uploads to accept
+- Queue: no items name step 5
+- Bump: minor (chart row), planned version 0.5.0
+- Dependencies: fastapi, uvicorn, python-multipart, and httpx apply as charted
+- Scope Lock (happy path): A client uploads a WAV file, polls the job until `done`, and downloads each stem as a WAV file. [source: draft-accepted (initiative)]
+- Scope Lock (first-run path): `STEMS_DATA_DIR` holds no file, so the app creates the folder, the database, and the `uploads` folder. [source: draft-accepted (initiative)]
+- Scope Lock (error path): An unlisted extension, an oversized upload, an unknown job, or an unknown stem gets a 4xx answer and creates no job. [source: draft-accepted (initiative)]
+- Scope Lock (cross-session continuity): A restart requeues a `running` job, and the same job id then reports its result. [source: draft-accepted (initiative)]
+- Scope Lock complete. All four scenario paths captured.
+- Schema: step 5 row is `none`. The API adds no table and no column.
