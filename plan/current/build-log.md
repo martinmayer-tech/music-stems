@@ -128,3 +128,36 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Archetype gates: none installed
 - Verification: all four criteria verified by execution (plan/current/verification-report.md)
 - Complete: P3 (2026-11-16T01:20:08Z)
+
+### P4: Ship
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-16T01:21:05Z` |
+| End | `2026-11-16T01:21:06Z` |
+| Wall clock | `0` |
+| Model tier | primary |
+| Skills loaded | ravintio-ship, ravintio-retrospective |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- Backlog: filed 0000020 (test-client-url-normalisation-note) from the retrospective (2026-11-16T01:21:05Z)
+- Retrospective: plan/retrospectives/0000010-http-api-2026-11-16.md (2026-11-16T01:21:05Z)
+- Complete: P4 (2026-11-16T01:21:06Z)
+
+---
+
+## Summary (filled at ship, P4)
+
+| Metric | Value |
+|--------|-------|
+| Total phases completed | `5` |
+| Total wall clock | `47` |
+| Total agents spawned | `0` |
+| Total MCP calls | `0` |
+| Phases using parallelism | `0` |
+| Primary tier agent calls | `0` |
+| Cheaper tier agent calls | `0` |
+| Self-corrections | `1` |
+| Phases skipped | `none` |

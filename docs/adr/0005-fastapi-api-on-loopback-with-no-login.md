@@ -1,7 +1,7 @@
 ---
 title: "ADR 0005: FastAPI HTTP API on the loopback address with no login"
 summary: "stem-service serves its HTTP API with FastAPI and uvicorn, binds to 127.0.0.1 by default, adds no login, and serves stems only from a job's stored outputs."
-status: "proposed"
+status: "accepted"
 component: "stem-service"
 version: "0.5.0"
 ---
