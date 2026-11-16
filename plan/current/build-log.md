@@ -164,3 +164,4 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Cheaper tier agent calls | `0` |
 | Self-corrections | `2` |
 | Phases skipped | `none` |
+- CI duration: 333s (run 43801776434, 2026-11-16T04:09:36Z)
