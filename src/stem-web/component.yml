@@ -50,7 +50,7 @@ scope:
   inScope:
     - "The page files, static_dir(), an upload form, a polling job list, and per-stem players and links"
   outOfScope:
-    - "A build step, a framework, browser automation, a login, cancel, and delete"
+    - "A build step, a UI library, browser automation, a login, cancel, and delete"
   deferred:
     - "Model choice waits for step 7"
 

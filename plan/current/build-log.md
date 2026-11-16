@@ -79,8 +79,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-16T01:33:33Z` |
-| End | `pending` |
-| Wall clock | `0` |
+| End | `2026-11-16T01:57:34Z` |
+| Wall clock | `23` |
 | Model tier | primary |
 | Skills loaded | ravintio-implement |
 | Agents spawned | `0` |
@@ -108,3 +108,7 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - RED: U4-docs (2026-11-16T01:36:01Z)
 - GREEN: U4-docs (2026-11-16T01:36:01Z)
 - Done: U4-docs (content, inline, none, 2026-11-16T01:36:01Z)
+- Rework: U4-docs: the wording allowlist suite flagged a banned word in two stem-web files. The files now say UI library (2026-11-16T01:57:34Z)
+- Deviation: P0 recorded the baseline before the clean-clone run ended, so it held 0 failures. The agent re-recorded it from the finished run, and it holds 59 (2026-11-16T01:57:44Z)
+- Tests run: full suite: 393 passed, 59 failed, 0 new, 59 inherited failures (2026-11-16T01:57:34Z)
+- Complete: P2 (2026-11-16T01:57:34Z)

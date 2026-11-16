@@ -3,7 +3,7 @@
 Risk level: medium. The page shows server text and has no browser test.
 
 In scope: the page files, `static_dir()`, an upload form, a polling job list, and one player and one download link for each stem.
-Out of scope: a build step, a framework, browser automation, a login, cancel, delete, and model choice.
+Out of scope: a build step, a UI library, browser automation, a login, cancel, delete, and model choice.
 Deferred: model choice waits for step 7.
 
 Risks:
