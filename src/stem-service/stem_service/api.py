@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, Form, HTTPException, UploadFile
+from fastapi.responses import FileResponse
 
 from stem_service.config import (
     database_path,
@@ -101,5 +102,30 @@ def create_app(
         for worker in app.state.workers:
             worker.wake()
         return _job_json(store.get(job_id))
+
+    def _known_job(job_id: str) -> Job:
+        job = store.get(job_id)
+        if job is None:
+            raise HTTPException(404, "No job has this id.")
+        return job
+
+    @app.get("/jobs")
+    def list_jobs() -> list[dict[str, Any]]:
+        return [_job_json(job) for job in store.list()]
+
+    @app.get("/jobs/{job_id}")
+    def get_job(job_id: str) -> dict[str, Any]:
+        return _job_json(_known_job(job_id))
+
+    @app.get("/jobs/{job_id}/stems/{name}")
+    def get_stem(job_id: str, name: str) -> FileResponse:
+        job = _known_job(job_id)
+        if job.status != DONE:
+            raise HTTPException(409, "The job is not done.")
+        # Look the name up in the stored outputs. The request never supplies a path.
+        match = next((p for p in job.outputs or [] if Path(p).name == name), None)
+        if match is None or not Path(match).is_file():
+            raise HTTPException(404, "The job has no stem with this name.")
+        return FileResponse(match, media_type="audio/wav", filename=name)
 
     return app

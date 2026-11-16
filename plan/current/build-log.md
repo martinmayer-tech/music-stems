@@ -92,3 +92,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - GREEN: U1-upload (2026-11-16T00:46:55Z)
 - Done: U1-upload (content, inline, none, 2026-11-16T00:46:55Z)
 - Tests run: REQ-001: src/stem-service/tests/test_api_upload.py (2026-11-16T00:46:55Z)
+- In progress: U2-read (2026-11-16T00:47:09Z)
+- RED: U2-read (2026-11-16T00:47:09Z)
+- GREEN: U2-read (2026-11-16T00:47:22Z)
+- Done: U2-read (content, inline, none, 2026-11-16T00:47:22Z)
+- Tests run: REQ-002, REQ-003: src/stem-service/tests/test_api_read.py (2026-11-16T00:47:22Z)
