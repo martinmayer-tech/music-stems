@@ -108,3 +108,7 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - GREEN: U4-page (2026-11-16T02:26:20Z)
 - Done: U4-page (content, inline, none, 2026-11-16T02:26:20Z)
 - Tests run: REQ-004: src/stem-web/tests/test_page_options.py (2026-11-16T02:26:20Z)
+- In progress: U5-docs (2026-11-16T02:26:20Z)
+- GREEN: U5-docs (2026-11-16T02:32:31Z)
+- Done: U5-docs (content, inline, none, 2026-11-16T02:32:31Z)
+- Baseline: 61 failures recorded in plan/current/baseline-failures.md. The P0 note said the run was still going, so the agent recorded it after the run ended (2026-11-16T02:32:31Z)
