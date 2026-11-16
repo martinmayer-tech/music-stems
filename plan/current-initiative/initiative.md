@@ -11,7 +11,7 @@ status: "active"  # proposed | charted | active | delivered | blocked
 
 **Status:** active
 
-**Position:** 5
+**Position:** 6
 
 **Speed:** standard
 
@@ -141,7 +141,7 @@ The steps build three components under `src/`.
 | 2 | 0000004-separation-core | Add the two-pass separation core | 0000005 | minor | 0.2.0 | merged | app | 1 |
 | 3 | 0000006-command-line-interface | Add the command-line interface | 0000007 | minor | 0.3.0 | merged | app | 2 |
 | 4 | 0000008-job-queue-worker | Add the job queue and worker | 0000009 | minor | 0.4.0 | merged | app | 3 |
-| 5 | 0000010-http-api | Add the HTTP API | 0000011 | minor | | pending | app | 4 |
+| 5 | 0000010-http-api | Add the HTTP API | 0000011 | minor | 0.5.0 | merged | app | 4 |
 | 6 | 0000012-web-front-end | Add the web front end | 0000013 | minor | | pending | app | 5 |
 | 7 | 0000014-model-ensemble-options | Add model choice and ensemble options | 0000015 | minor | | pending | app | 6 |
 | 8 | 0000016-docker-packaging | Add the Docker image and compose file | 0000017 | minor | | pending | app | 7 |
@@ -156,3 +156,4 @@ The merge queue adds one row for each step it merges. See the merge queue sectio
 | 2 | #6 | tag v0.2.0 | 0.2.0 | 2026-11-15T22:50:35Z |
 | 3 | #7 | tag v0.3.0 | 0.3.0 | 2026-11-15T23:51:17Z |
 | 4 | #8 | tag v0.4.0 | 0.4.0 | 2026-11-16T00:29:27Z |
+| 5 | #9 | tag v0.5.0 | 0.5.0 | 2026-11-16T01:27:02Z |
