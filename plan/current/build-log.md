@@ -26,8 +26,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-16T03:07:52Z` |
-| End | `{{pending}}` |
-| Wall clock | `0` |
+| End | `2026-11-16T03:08:58Z` |
+| Wall clock | `1` |
 | Model tier | primary |
 | Skills loaded | ravintio-orchestrator |
 | Agents spawned | `0` |
@@ -56,3 +56,18 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Scope Lock (cross-session continuity): A restart keeps the models and the finished jobs in the two volumes. [source: draft-accepted (initiative)]
 - Scope Lock complete. All four scenario paths captured.
 - Baseline: the clean-clone run is still going. The agent records it before P3 starts.
+- Complete: P0 (2026-11-16T03:08:58Z)
+
+### P1: Plan
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-16T03:08:58Z` |
+| End | `{{pending}}` |
+| Wall clock | `0` |
+| Model tier | primary |
+| Skills loaded | ravintio-plan |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
