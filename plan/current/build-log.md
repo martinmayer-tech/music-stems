@@ -26,8 +26,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-16T01:30:42Z` |
-| End | `pending` |
-| Wall clock | `0` |
+| End | `2026-11-16T01:31:44Z` |
+| Wall clock | `3` |
 | Model tier | primary |
 | Skills loaded | ravintio-orchestrator |
 | Agents spawned | `0` |
@@ -55,3 +55,5 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Scope Lock (error path): The API refuses the upload, a job ends `failed`, or the API is not reachable. The page shows the error text and no stem. [source: draft-accepted (initiative)]
 - Scope Lock (cross-session continuity): A reload shows every job from `GET /jobs` with its status and stems. [source: draft-accepted (initiative)]
 - Scope Lock complete. All four scenario paths captured.
+- Baseline: recorded in plan/current/baseline-failures.md (2026-11-16T01:31:44Z)
+- Complete: P0 (2026-11-16T01:31:44Z)
