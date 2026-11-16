@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: Stem service API
+  version: 0.5.0
+  description: Upload a mix, follow its job, and download each stem. The service has no login and binds to 127.0.0.1 by default.
+servers:
+  - url: http://127.0.0.1:8000
+paths:
+  /jobs:
+    post:
+      operationId: createJob
+      summary: Upload a mix and queue a job
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file]
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: A WAV, FLAC, MP3, or M4A file, up to STEMS_MAX_UPLOAD_MB.
+                full_stems:
+                  type: boolean
+                  default: false
+      responses:
+        "201":
+          description: The job is queued.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+        "413":
+          description: The upload is larger than the limit.
+        "415":
+          description: The file extension is not allowed.
+        "422":
+          description: The request has no file field.
+    get:
+      operationId: listJobs
+      summary: List every job in creation order
+      responses:
+        "200":
+          description: The jobs.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Job"
+  /jobs/{id}:
+    get:
+      operationId: getJob
+      summary: Read one job
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The job.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+        "404":
+          description: No job has this id.
+  /jobs/{id}/stems/{name}:
+    get:
+      operationId: getStem
+      summary: Download one stem of a finished job
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The stem as a WAV file.
+          content:
+            audio/wav:
+              schema:
+                type: string
+                format: binary
+        "404":
+          description: No job has this id, or the job lists no stem with this name.
+        "409":
+          description: The job is not done.
+components:
+  schemas:
+    Job:
+      type: object
+      required: [id, status, full_stems, stems, error, created_at, started_at, finished_at]
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+          enum: [queued, running, done, failed]
+        full_stems:
+          type: boolean
+        stems:
+          type: [array, "null"]
+          items:
+            type: string
+          description: File names of the stems. The value is null until the job is done.
+        error:
+          type: [string, "null"]
+        created_at:
+          type: string
+        started_at:
+          type: [string, "null"]
+        finished_at:
+          type: [string, "null"]
