@@ -1,7 +1,7 @@
 ---
 title: "ADR 0004: SQLite job store and a worker with a model pool"
 summary: "stem-service owns a SQLite jobs table, and one worker thread for each device runs jobs through a pool that loads each model once."
-status: "proposed"
+status: "accepted"
 component: "stem-service"
 version: "0.4.0"
 ---

@@ -135,6 +135,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Postmortem: plan/postmortems/2026-11-16-subprocess-import-without-pythonpath.md REQ-004 (2026-11-16T00:22:56Z)
 - Complete: P4 (2026-11-16T00:22:56Z)
 
+- CI duration: 144s (run 43780075147, 2026-11-16T00:26:04Z)
+
 ---
 
 ## Summary (filled at ship, P4)
