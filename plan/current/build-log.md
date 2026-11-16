@@ -88,3 +88,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | MCP calls | `0` |
 | Parallel task batches | `0` |
 | Notes | none |
+- In progress: U1-image (2026-11-16T03:11:16Z)
+- RED: U1-image (2026-11-16T03:11:17Z)
+- GREEN: U1-image (2026-11-16T03:11:21Z)
+- Done: U1-image (content, inline, none, 2026-11-16T03:11:21Z)
+- Tests run: REQ-001: src/stem-service/tests/test_docker_image.py (2026-11-16T03:11:21Z)
