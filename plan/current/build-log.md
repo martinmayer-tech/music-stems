@@ -124,14 +124,16 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-16T00:22:35Z` |
-| End | `` |
-| Wall clock | `` |
+| End | `2026-11-16T00:22:56Z` |
+| Wall clock | `0` |
 | Model tier | primary |
 | Skills loaded | ravintio-ship |
 | Agents spawned | `0` |
 | MCP calls | `0` |
 | Parallel task batches | `0` |
 | Notes | none |
+- Postmortem: plan/postmortems/2026-11-16-subprocess-import-without-pythonpath.md REQ-004 (2026-11-16T00:22:56Z)
+- Complete: P4 (2026-11-16T00:22:56Z)
 
 ---
 
@@ -140,7 +142,7 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Metric | Value |
 |--------|-------|
 | Total phases completed | `5` |
-| Total wall clock | `` |
+| Total wall clock | `28` |
 | Total agents spawned | `0` |
 | Total MCP calls | `0` |
 | Phases using parallelism | `0` |
