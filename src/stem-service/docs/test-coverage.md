@@ -9,4 +9,6 @@
 | `tests/test_api_service.py` | REQ-004 default host and port, the first-run folders, the entry point, no login, worker shutdown, and a job from upload to download |
 | `tests/test_worker.py` | REQ-002 requeue on start. REQ-003 turn-taking, failure handling, idle wake-up, and one worker for each device. REQ-004 model reuse and per-job output folders |
 
+`src/stem-web/tests/test_page_serve.py` covers the `/` route and the `/static` mount.
+
 Unit tests inject a fake separator or a fake `split` function. No test loads a real model.

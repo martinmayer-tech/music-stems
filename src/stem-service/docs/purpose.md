@@ -6,6 +6,6 @@ The component owns the SQLite table `jobs`. A caller adds a job, and a worker ru
 
 The HTTP API takes an upload, queues a job, reports its status, and serves each stem as a WAV file. It binds to `127.0.0.1` by default and has no login.
 
-The web page calls this component over HTTP in step 6. This component calls stem-core to separate audio.
+The component also serves the web page of stem-web at `/`. The page calls this component over HTTP. This component calls stem-core to separate audio.
 
 Run the service with `python -m stem_service`. It needs the `service` extra of the root `pyproject.toml`.

@@ -105,3 +105,6 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Rework: REQ-004: the done-branch test looked for the audio element inside the branch, but renderStem builds it. The test now checks that only the done branch calls renderStem (2026-11-16T01:35:16Z)
 - Tests run: REQ-004: src/stem-web/tests/test_stem_links.py (2026-11-16T01:35:16Z)
 - In progress: U4-docs (2026-11-16T01:35:16Z)
+- RED: U4-docs (2026-11-16T01:36:01Z)
+- GREEN: U4-docs (2026-11-16T01:36:01Z)
+- Done: U4-docs (content, inline, none, 2026-11-16T01:36:01Z)
