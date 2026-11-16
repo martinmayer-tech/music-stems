@@ -2,7 +2,7 @@
 
 **Feature:** Add model choice and ensemble options
 **Version:** set by the merge queue at merge
-**PR:** pending
+**PR:** 11
 
 ## What changed
 
