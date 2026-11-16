@@ -1,7 +1,7 @@
 ---
 title: "ADR 0008: Docker packaging of the service"
 summary: "One image runs the service as a non-root user, two named volumes keep models and jobs, and the compose file publishes on loopback only."
-status: "proposed"
+status: "accepted"
 component: "stem-service"
 version: "0.8.0"
 ---

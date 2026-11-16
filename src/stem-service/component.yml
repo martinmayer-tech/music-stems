@@ -86,7 +86,7 @@ quality:
 pipeline:
   templateVersion: "1.0.0"
   featureMode: "greenfield"
-  domainKnowledgePath: "plan/current"
+  domainKnowledgePath: "plan/_archive/0000016-docker-packaging-2026-11-16"
 
 metadata:
   createdAt: "2026-11-15T20:57:56Z"
