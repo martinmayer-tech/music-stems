@@ -11,3 +11,6 @@
 - The upload route validates the options before it writes the file. `split()` validates them again, so a job that holds a bad option still fails before any model loads.
 - The model pool keys a separator by model file and preset. A preset separator is separate from a plain one.
 - Tests that start a worker use a poll interval of 0.01 seconds and wait up to 10 seconds for a job.
+- The image sets `STEMS_HOST=0.0.0.0`. The default outside Docker stays `127.0.0.1`. Docker forwards a published port to the container address, so a loopback bind inside the container would never answer.
+- The root `pyproject.toml` installs `stem_core` only. The image sets `PYTHONPATH` to the three `src` folders so `python -m stem_service` finds the others.
+- The `AUDIO_SEPARATOR_VERSION` build argument repeats the `pyproject.toml` pin.

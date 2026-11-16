@@ -1,17 +1,18 @@
 # RAVINTIO Component Manifest
 id: "stem-service"
 name: "Stem service"
-feature: "0000014-model-ensemble-options"
-version: "0.7.0"
+feature: "0000016-docker-packaging"
+version: "0.8.0"
 status: "active"
 type: "microservice"
 domain: "stem-separation"
-summary: "Holds the job store, the worker, the HTTP API, and the route that serves the web page."
+summary: "Holds the job store, the worker, the HTTP API, the route that serves the web page, and the Docker image and compose files."
 systemContext: "Sits between the web page and stem-core. Receives uploads, runs jobs, and serves the page."
 
 responsibilities:
   - "Holds the SQLite job store and the worker that runs jobs through split()."
   - "Holds the HTTP API: upload, job status, and stem download, on 127.0.0.1 by default."
+  - "Holds the Dockerfile, the .dockerignore file, compose.yaml, and compose.gpu.yaml at the repo root."
 
 exceptions: []
 
@@ -24,9 +25,9 @@ stack:
   database: "sqlite"
   orm: "none"
   testing: "pytest"
-  iac: "none"
+  iac: "dockerfile"
   cloud: "none"
-  compute: "none"
+  compute: "docker"
   ci: "github-actions"
 
 contract:
@@ -54,8 +55,9 @@ data:
 scope:
   inScope:
     - "The jobs table, the job store, the worker, the model pool, restart recovery, the HTTP API, and the page route"
+    - "The Dockerfile, the compose files, and the CI image build"
   outOfScope:
-    - "A login, cancel, delete, caller model choice, and a broker"
+    - "A login, cancel, delete, a free model name, a broker, and publishing the image"
   deferred:
     - "none"
 
@@ -65,10 +67,11 @@ risk:
     - "A real Separator may ignore a changed output_dir"
     - "A restart during a job leaves it running until recover() runs"
     - "The service has no login, so a public STEMS_HOST exposes an open upload route"
+    - "The container binds to all interfaces, so a compose port without 127.0.0.1 exposes the same route"
 
 quality:
   testCoverage:
-    unit: 76
+    unit: 87
     integration: 0
     e2e: 0
   techDebt: []
@@ -77,15 +80,16 @@ quality:
     - "start_workers recovers once and starts each worker with recover=False"
     - "create_app builds the store and the uploads folder at once, and starts the worker at start-up"
     - "create_app imports stem_web for the page folder, so src/stem-web must be on the Python path"
+    - "The image sets PYTHONPATH to the three src folders, because the root pyproject installs stem_core only"
 
 pipeline:
   templateVersion: "1.0.0"
   featureMode: "greenfield"
-  domainKnowledgePath: "plan/_archive/0000014-model-ensemble-options-2026-11-16"
+  domainKnowledgePath: "plan/current"
 
 metadata:
   createdAt: "2026-11-15T20:57:56Z"
-  updatedAt: "2026-11-16T02:27:02Z"
+  updatedAt: "2026-11-16T03:12:17Z"
   createdBy: "agent"
   lastModifiedBy: "agent"
   skill: "ravintio-implement"

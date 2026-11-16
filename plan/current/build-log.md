@@ -103,3 +103,4 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Done: U3-ci (content, inline, none, 2026-11-16T03:12:00Z)
 - Tests run: REQ-002: src/stem-service/tests/test_compose.py (2026-11-16T03:12:00Z)
 - Tests run: REQ-003: src/stem-service/tests/test_ci_docker.py (2026-11-16T03:12:00Z)
+- In progress: U4-docs (2026-11-16T03:12:01Z)

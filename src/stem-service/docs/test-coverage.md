@@ -11,6 +11,12 @@
 | `tests/test_api_options.py` | REQ-003 stored options, empty values, and a 422 that leaves no job and no file |
 | `tests/test_worker_options.py` | REQ-003 the pass-through to `split()`, a six-stem job, a failed job before any model loads, and the pool key |
 
+| `tests/test_docker_image.py` | REQ-001 the base image, FFmpeg, the extra argument, the pin, the runtime settings, and the `.dockerignore` entries |
+| `tests/test_compose.py` | REQ-002 the loopback port, both volumes, the build argument, and the GPU override |
+| `tests/test_ci_docker.py` | REQ-003 the CI job builds the CPU image and pushes and runs nothing |
+
 `src/stem-web/tests/test_page_serve.py` covers the `/` route and the `/static` mount.
 
 Unit tests inject a fake separator or a fake `split` function. No test loads a real model.
+
+The image build itself runs in CI and in a local `docker build`. No unit test builds an image.

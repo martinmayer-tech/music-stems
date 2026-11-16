@@ -70,3 +70,13 @@ A job in JSON holds `id`, `status`, `full_stems`, `stems`, `error`, `created_at`
 ## `python -m stem_service`
 
 Runs the app with uvicorn on `resolve_host()` and `resolve_port()`.
+
+## Docker files
+
+| File | Meaning |
+|------|---------|
+| `Dockerfile` | Builds the image from `python:3.12-slim` with FFmpeg. The build arguments are `STEMS_EXTRA` (`cpu` or `gpu`, default `cpu`) and `AUDIO_SEPARATOR_VERSION` |
+| `compose.yaml` | Runs one service on `127.0.0.1:${STEMS_PORT:-8000}`, with the named volumes `models` at `/models` and `data` at `/data` |
+| `compose.gpu.yaml` | Overrides `STEMS_EXTRA` with `gpu` and reserves one NVIDIA device |
+
+The image sets `STEMS_HOST=0.0.0.0`, `STEMS_PORT=8000`, `STEMS_DATA_DIR=/data`, and `STEMS_MODEL_DIR=/models`. It exposes port 8000 and runs as the user `stems`.
