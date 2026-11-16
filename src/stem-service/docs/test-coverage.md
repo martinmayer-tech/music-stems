@@ -4,6 +4,9 @@
 |------|--------|
 | `tests/test_smoke.py` | The `stem_service` package imports and holds a version |
 | `tests/test_jobs.py` | REQ-001 add, get, list, claim, finish, and the data folder setting. REQ-002 persistence and `recover()`. REQ-004 import loads no model library |
+| `tests/test_api_upload.py` | REQ-001 accepted extensions, rejected extensions, the size limit, name cleaning, and waking the workers |
+| `tests/test_api_read.py` | REQ-002 job and list routes with no server path. REQ-003 stem download, refused names, a missing file, and an unfinished job |
+| `tests/test_api_service.py` | REQ-004 default host and port, the first-run folders, the entry point, no login, worker shutdown, and a job from upload to download |
 | `tests/test_worker.py` | REQ-002 requeue on start. REQ-003 turn-taking, failure handling, idle wake-up, and one worker for each device. REQ-004 model reuse and per-job output folders |
 
-Unit tests inject a fake separator. No test loads a real model.
+Unit tests inject a fake separator or a fake `split` function. No test loads a real model.

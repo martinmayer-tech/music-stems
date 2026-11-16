@@ -1,17 +1,17 @@
 # RAVINTIO Component Manifest
 id: "stem-service"
 name: "Stem service"
-feature: "0000008-job-queue-worker"
-version: "0.4.0"
+feature: "0000010-http-api"
+version: "0.5.0"
 status: "active"
 type: "microservice"
 domain: "stem-separation"
-summary: "Holds the job store, the worker, and the HTTP API. The job store and worker are built."
+summary: "Holds the job store, the worker, and the HTTP API. All three are built."
 systemContext: "Sits between the web page and stem-core. Receives uploads and runs jobs."
 
 responsibilities:
   - "Holds the SQLite job store and the worker that runs jobs through split()."
-  - "Holds the HTTP API once step 5 adds it."
+  - "Holds the HTTP API: upload, job status, and stem download, on 127.0.0.1 by default."
 
 exceptions: []
 
@@ -33,8 +33,11 @@ contract:
   inputs:
     - "JobStore.add(input_path, full_stems, options)"
     - "start_workers(store, devices)"
+    - "POST /jobs, GET /jobs, GET /jobs/{id}, GET /jobs/{id}/stems/{name}"
+    - "create_app(data_dir, run_workers, worker_options, max_upload_bytes)"
   outputs:
     - "A job row that ends as done with output paths, or as failed with one error line"
+    - "A JSON job without server paths, and each stem as a WAV file"
   consumedBy: []
   consumes:
     - "stem-core: split(mix_path, out_dir, full_stems, separator_factory)"
@@ -48,11 +51,11 @@ data:
 
 scope:
   inScope:
-    - "The jobs table, the job store, the worker, the model pool, and restart recovery"
+    - "The jobs table, the job store, the worker, the model pool, restart recovery, and the HTTP API"
   outOfScope:
-    - "The HTTP API, uploads, cancel, caller model choice, and a broker"
+    - "A login, cancel, delete, caller model choice, and a broker"
   deferred:
-    - "The HTTP API waits for step 5"
+    - "The web page waits for step 6"
     - "Caller model choice and ensembles wait for step 7"
 
 risk:
@@ -60,25 +63,27 @@ risk:
   items:
     - "A real Separator may ignore a changed output_dir"
     - "A restart during a job leaves it running until recover() runs"
+    - "The service has no login, so a public STEMS_HOST exposes an open upload route"
 
 quality:
   testCoverage:
-    unit: 27
+    unit: 65
     integration: 0
     e2e: 0
   techDebt: []
   quirks:
     - "JobStore opens one connection for each call"
     - "start_workers recovers once and starts each worker with recover=False"
+    - "create_app builds the store and the uploads folder at once, and starts the worker at start-up"
 
 pipeline:
   templateVersion: "1.0.0"
   featureMode: "greenfield"
-  domainKnowledgePath: "plan/_archive/0000008-job-queue-worker-2026-11-15"
+  domainKnowledgePath: "plan/_archive/0000010-http-api-2026-11-16"
 
 metadata:
   createdAt: "2026-11-15T20:57:56Z"
-  updatedAt: "2026-11-16T00:00:01Z"
+  updatedAt: "2026-11-16T00:50:00Z"
   createdBy: "agent"
   lastModifiedBy: "agent"
   skill: "ravintio-implement"

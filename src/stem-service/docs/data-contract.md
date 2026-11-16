@@ -8,7 +8,7 @@ version: "0.1.0"
 
 **Skill:** [implement](../../../ravintio-zero/skills/ravintio-implement/SKILL.md) (updated via migration proposals)
 **Component:** stem-service
-**Feature:** 0000008-job-queue-worker
+**Feature:** 0000010-http-api
 **Owner:** stem-service
 **Schema Version:** 1.0.0
 
@@ -36,6 +36,10 @@ version: "0.1.0"
 
 **Relationships:**
 - None.
+
+## Files
+
+The API writes each upload to `{data_dir}/uploads/{random id}/{file name}`. `stem-service` owns the `uploads` folder. The worker writes stems to `{data_dir}/jobs/{job id}`. No schema change comes with this step.
 
 ## Invariants
 
