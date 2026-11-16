@@ -57,6 +57,8 @@ The worker calls `split_func(input_path, out_dir, full_stems, pool.factory)`. Th
 | Route | Meaning |
 |-------|---------|
 | `POST /jobs` | Takes a multipart `file` and an optional `full_stems`. Returns 201 with the job. Returns 415 for an extension other than `.wav`, `.flac`, `.mp3`, or `.m4a`. Returns 413 above the upload limit |
+| `GET /` | Returns the page of stem-web as `text/html` |
+| `/static/{file}` | Returns a file of the page folder, or 404. The mount serves no other folder |
 | `GET /jobs` | Returns every job, oldest first |
 | `GET /jobs/{id}` | Returns one job, or 404 |
 | `GET /jobs/{id}/stems/{name}` | Returns one stem as `audio/wav`. Returns 404 for an unknown job or name, and 409 for a job that is not `done` |

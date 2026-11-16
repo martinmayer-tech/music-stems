@@ -1,25 +1,26 @@
 # RAVINTIO Component Manifest
 id: "stem-web"
 name: "Stem web"
-feature: "0000002-python-scaffold"
-version: "0.1.0"
+feature: "0000012-web-front-end"
+version: "0.6.0"
 status: "active"
 type: "microfrontend"
 domain: "stem-separation"
-summary: "Holds the web page that the API serves."
-systemContext: "Served by stem-service. Calls its HTTP API from the browser."
+summary: "Holds the plain HTML, CSS, and JavaScript page that the API serves."
+systemContext: "Served by stem-service at / and under /static. Calls its HTTP API from the browser."
 
 responsibilities:
-  - "Holds the web page that the API serves."
+  - "Holds the page: an upload form, a polling job list, and one player and one download link for each stem."
+  - "Names the page folder through static_dir()."
 
 exceptions:
-  - "Step 1 adds no behaviour. This component holds a package skeleton and a smoke test only."
+  - "The page has no browser test. A node test covers the stemLinks function only."
 
 stack:
   language: "python"
   runtime: "python"
-  frontend: "none"
-  styling: "none"
+  frontend: "plain-html-css-js"
+  styling: "plain-css"
   componentLibrary: "none"
   database: "none"
   orm: "none"
@@ -30,9 +31,13 @@ stack:
   ci: "github-actions"
 
 contract:
-  inputs: []
-  outputs: []
-  consumedBy: []
+  inputs:
+    - "GET /jobs and POST /jobs of stem-service, called with fetch"
+    - "GET /jobs/{id}/stems/{name} of stem-service, used as the source of each player and link"
+  outputs:
+    - "stem_web.static_dir(): the folder that holds index.html, app.js, and style.css"
+  consumedBy:
+    - "stem-service"
   consumes: []
   breakingChangePolicy: "requires-adr"
 
@@ -43,18 +48,21 @@ data:
 
 scope:
   inScope:
-    - "A package skeleton and one smoke test"
+    - "The page files, static_dir(), an upload form, a polling job list, and per-stem players and links"
   outOfScope:
-    - "Any behaviour. Later steps add it."
-  deferred: []
+    - "A build step, a UI library, browser automation, a login, cancel, and delete"
+  deferred:
+    - "Model choice waits for step 7"
 
 risk:
-  level: "low"
-  items: []
+  level: "medium"
+  items:
+    - "Server text could run as markup. The script uses textContent only"
+    - "The DOM code has no browser test"
 
 quality:
   testCoverage:
-    unit: 1
+    unit: 18
     integration: 0
     e2e: 0
   techDebt: []
@@ -63,11 +71,11 @@ quality:
 pipeline:
   templateVersion: "1.0.0"
   featureMode: "greenfield"
-  domainKnowledgePath: "plan/_archive/0000002-python-scaffold-2026-11-15"
+  domainKnowledgePath: "plan/_archive/0000012-web-front-end-2026-11-16"
 
 metadata:
   createdAt: "2026-11-15T20:57:56Z"
-  updatedAt: "2026-11-15T20:57:56Z"
+  updatedAt: "2026-11-16T01:36:00Z"
   createdBy: "agent"
   lastModifiedBy: "agent"
   skill: "ravintio-implement"

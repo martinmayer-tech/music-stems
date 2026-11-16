@@ -2,9 +2,9 @@
 
 Risk level: medium. The component serves an HTTP API with no login.
 
-In scope: the job store, the worker, the model pool, restart recovery, and the HTTP API.
+In scope: the job store, the worker, the model pool, restart recovery, the HTTP API, and the route that serves the web page.
 Out of scope: a login, cancel, delete, caller model choice, and a broker.
-Deferred: the web page waits for step 6. Model choice and ensembles wait for step 7.
+Deferred: model choice and ensembles wait for step 7.
 
 Risks:
 
