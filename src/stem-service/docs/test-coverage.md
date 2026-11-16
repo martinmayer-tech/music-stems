@@ -14,6 +14,7 @@
 | `tests/test_docker_image.py` | REQ-001 the base image, FFmpeg, the extra argument, the pin, the runtime settings, and the `.dockerignore` entries |
 | `tests/test_compose.py` | REQ-002 the loopback port, both volumes, the build argument, and the GPU override |
 | `tests/test_ci_docker.py` | REQ-003 the CI job builds the CPU image and pushes and runs nothing |
+| `tests/test_docker_docs.py` | The purpose doc, the decisions index, and the manifest name the Docker files |
 
 `src/stem-web/tests/test_page_serve.py` covers the `/` route and the `/static` mount.
 

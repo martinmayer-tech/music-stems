@@ -104,3 +104,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Tests run: REQ-002: src/stem-service/tests/test_compose.py (2026-11-16T03:12:00Z)
 - Tests run: REQ-003: src/stem-service/tests/test_ci_docker.py (2026-11-16T03:12:00Z)
 - In progress: U4-docs (2026-11-16T03:12:01Z)
+- RED: U4-docs (2026-11-16T03:12:53Z)
+- GREEN: U4-docs (2026-11-16T03:12:58Z)
+- Done: U4-docs (content, inline, none, 2026-11-16T03:12:58Z)
+- Deviation: the docs unit had no RED line when it ran. The agent wrote test_docker_docs.py afterwards, and it failed on the commit before the docs and passed on HEAD (2026-11-16T03:12:58Z)
+- Tests run: U4-docs: src/stem-service/tests/test_docker_docs.py (2026-11-16T03:12:58Z)
