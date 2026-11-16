@@ -3,8 +3,14 @@
 
 id: "music-stems"
 name: "Music Stems"
-version: "0.0.0"
+version: "0.1.0"
 feature: "0000001-stem-separation-service"
 versionPolicy: "explicit"
 
-components: []
+components:
+  - id: "stem-core"
+    path: "src/stem-core/component.yml"
+  - id: "stem-service"
+    path: "src/stem-service/component.yml"
+  - id: "stem-web"
+    path: "src/stem-web/component.yml"

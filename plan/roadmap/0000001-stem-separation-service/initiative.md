@@ -11,7 +11,7 @@ status: "charted"  # proposed | charted | active | delivered | blocked
 
 **Status:** charted
 
-**Position:** 1
+**Position:** 2
 
 **Speed:** standard
 
@@ -137,7 +137,7 @@ The steps build three components under `src/`.
 
 | Step | Feature id | Title | Backlog entries | Bump | Version | Status | Lane | After |
 |------|------------|-------|-----------------|------|---------|--------|------|-------|
-| 1 | 0000002-python-scaffold | Scaffold the Python project and its CI | 0000003 | minor | | pending | app | |
+| 1 | 0000002-python-scaffold | Scaffold the Python project and its CI | 0000003 | minor | 0.1.0 | merged | app | |
 | 2 | 0000004-separation-core | Add the two-pass separation core | 0000005 | minor | | pending | app | 1 |
 | 3 | 0000006-command-line-interface | Add the command-line interface | 0000007 | minor | | pending | app | 2 |
 | 4 | 0000008-job-queue-worker | Add the job queue and worker | 0000009 | minor | | pending | app | 3 |
@@ -152,3 +152,4 @@ The merge queue adds one row for each step it merges. See the merge queue sectio
 
 | Step | PR | Merge commit | Version | Merged at |
 |------|----|--------------|---------|-----------|
+| 1 | #5 | tag v0.1.0 | 0.1.0 | 2026-11-15T22:00:11Z |
