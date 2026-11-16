@@ -64,7 +64,7 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 |-------|-------|
 | Start | `2026-11-16T03:08:58Z` |
 | End | `2026-11-16T03:10:23Z` |
-| Wall clock | `0` |
+| Wall clock | `1` |
 | Model tier | primary |
 | Skills loaded | ravintio-plan |
 | Agents spawned | `0` |
@@ -81,7 +81,7 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 |-------|-------|
 | Start | `2026-11-16T03:10:23Z` |
 | End | `2026-11-16T04:02:32Z` |
-| Wall clock | `0` |
+| Wall clock | `52` |
 | Model tier | primary |
 | Skills loaded | ravintio-implement |
 | Agents spawned | `0` |
@@ -120,8 +120,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-16T04:02:32Z` |
-| End | `{{pending}}` |
-| Wall clock | `0` |
+| End | `2026-11-16T04:03:06Z` |
+| Wall clock | `1` |
 | Model tier | primary |
 | Skills loaded | ravintio-validate-and-accept |
 | Agents spawned | `0` |
@@ -132,3 +132,35 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Archetype gates: none installed
 - Verification: criteria verified by running the image and the compose stack (plan/current/verification-report.md)
 - Finding: a job in the image fails because audioread is missing. The agent filed 0000023 and added no library
+- Complete: P3 (2026-11-16T04:03:06Z)
+
+### P4: Ship
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-16T04:03:06Z` |
+| End | `2026-11-16T04:03:12Z` |
+| Wall clock | `0` |
+| Model tier | primary |
+| Skills loaded | ravintio-ship |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- Complete: P4 (2026-11-16T04:03:12Z)
+
+---
+
+## Summary (filled at ship, P4)
+
+| Metric | Value |
+|--------|-------|
+| Total phases completed | `5` |
+| Total wall clock | `56` |
+| Total agents spawned | `0` |
+| Total MCP calls | `0` |
+| Phases using parallelism | `0` |
+| Primary tier agent calls | `0` |
+| Cheaper tier agent calls | `0` |
+| Self-corrections | `2` |
+| Phases skipped | `none` |
