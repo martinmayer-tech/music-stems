@@ -1,0 +1,20 @@
+# Run the service with `docker compose up --build`. The page opens on http://127.0.0.1:8000.
+# The port is published on the loopback address only, because the service has no login.
+# Do not remove the 127.0.0.1 prefix unless you put a login in front of the service.
+services:
+  stems:
+    build:
+      context: .
+      args:
+        STEMS_EXTRA: ${STEMS_EXTRA:-cpu}
+    image: music-stems:local
+    ports:
+      - "127.0.0.1:${STEMS_PORT:-8000}:8000"
+    volumes:
+      - models:/models
+      - data:/data
+    restart: unless-stopped
+
+volumes:
+  models:
+  data:

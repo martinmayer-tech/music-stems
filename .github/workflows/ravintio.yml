@@ -216,3 +216,18 @@ jobs:
 
       - name: Test
         run: pytest
+
+  # Builds the CPU image on a pull request. It runs no container and pushes
+  # nothing (0000016 REQ-003).
+  docker:
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Build the CPU image
+        run: docker build --build-arg STEMS_EXTRA=cpu --tag music-stems:ci .

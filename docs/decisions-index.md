@@ -2,7 +2,7 @@
 
 > Living document. Index of all ADRs across all features. Update it in place.
 
-Last updated: 0000014-model-ensemble-options
+Last updated: 0000016-docker-packaging
 
 ## All architecture decision records
 
@@ -15,6 +15,7 @@ Last updated: 0000014-model-ensemble-options
 | [ADR-0005](adr/0005-fastapi-api-on-loopback-with-no-login.md) | FastAPI HTTP API on the loopback address with no login | 0000010-http-api | active | `stem-service` serves four routes on `127.0.0.1`, adds no login, and serves stems only from a job's outputs |
 | [ADR-0006](adr/0006-plain-web-page-served-by-the-api.md) | Plain web page served by the API | 0000012-web-front-end | active | `stem-web` holds a build-free page and `stem-service` serves it at `/` |
 | [ADR-0007](adr/0007-allowlisted-model-options-in-stem-core.md) | Allowlisted model options in stem-core | 0000014-model-ensemble-options | active | `stem-core` holds the allowlists and checks each option before any model loads |
+| [ADR-0008](adr/0008-docker-packaging-of-the-service.md) | Docker packaging of the service | 0000016-docker-packaging | active | One image runs as a non-root user, two named volumes keep models and jobs, and compose publishes on loopback only |
 
 ## Status definitions
 

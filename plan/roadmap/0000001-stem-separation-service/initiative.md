@@ -11,7 +11,7 @@ status: "charted"  # proposed | charted | active | delivered | blocked
 
 **Status:** charted
 
-**Position:** 8
+**Position:** 9
 
 **Speed:** standard
 
@@ -144,7 +144,7 @@ The steps build three components under `src/`.
 | 5 | 0000010-http-api | Add the HTTP API | 0000011 | minor | 0.5.0 | merged | app | 4 |
 | 6 | 0000012-web-front-end | Add the web front end | 0000013 | minor | 0.6.0 | merged | app | 5 |
 | 7 | 0000014-model-ensemble-options | Add model choice and ensemble options | 0000015 | minor | 0.7.0 | merged | app | 6 |
-| 8 | 0000016-docker-packaging | Add the Docker image and compose file | 0000017 | minor | | pending | app | 7 |
+| 8 | 0000016-docker-packaging | Add the Docker image and compose file | 0000017 | minor | 0.8.0 | merged | app | 7 |
 
 ## Merges
 
@@ -159,3 +159,4 @@ The merge queue adds one row for each step it merges. See the merge queue sectio
 | 5 | #9 | tag v0.5.0 | 0.5.0 | 2026-11-16T01:27:02Z |
 | 6 | #10 | tag v0.6.0 | 0.6.0 | 2026-11-16T02:06:56Z |
 | 7 | #11 | tag v0.7.0 | 0.7.0 | 2026-11-16T03:04:03Z |
+| 8 | #12 | tag v0.8.0 | 0.8.0 | 2026-11-16T04:15:43Z |
