@@ -50,3 +50,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Bump: minor (chart row), planned version 0.6.0
 - Dependencies: none for step 6, the page uses plain HTML, CSS, and JavaScript
 - Schema: step 6 row is `none`. The page reads the existing API and adds no table or column.
+- Scope Lock (happy path): A user opens `/`, chooses a WAV file, sends it, and watches the job reach `done`. The page then shows one player and one download link per stem. [source: draft-accepted (initiative)]
+- Scope Lock (first-run path): The service holds no job. The page loads and the job list reads "No jobs yet." [source: draft-accepted (initiative)]
+- Scope Lock (error path): The API refuses the upload, a job ends `failed`, or the API is not reachable. The page shows the error text and no stem. [source: draft-accepted (initiative)]
+- Scope Lock (cross-session continuity): A reload shows every job from `GET /jobs` with its status and stems. [source: draft-accepted (initiative)]
+- Scope Lock complete. All four scenario paths captured.
