@@ -26,8 +26,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-16T00:33:13Z` |
-| End | `` |
-| Wall clock | `` |
+| End | `2026-11-16T00:44:12Z` |
+| Wall clock | `11` |
 | Model tier | primary |
 | Skills loaded | ravintio-orchestrator |
 | Agents spawned | `0` |
@@ -55,3 +55,19 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Scope Lock (cross-session continuity): A restart requeues a `running` job, and the same job id then reports its result. [source: draft-accepted (initiative)]
 - Scope Lock complete. All four scenario paths captured.
 - Schema: step 5 row is `none`. The API adds no table and no column.
+- Baseline: recorded in `plan/current/baseline-failures.md` when the clean-clone run ends (2026-11-16T00:44:12Z)
+- Complete: P0 (2026-11-16T00:44:12Z)
+
+### P1: Plan
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-16T00:44:12Z` |
+| End | `` |
+| Wall clock | `` |
+| Model tier | primary |
+| Skills loaded | ravintio-plan |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
