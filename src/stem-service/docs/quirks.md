@@ -8,4 +8,6 @@
 - The upload route checks the size twice. It rejects a known size before the copy, and it counts bytes during the copy. FastAPI has already buffered the body by then, so the limit protects the data folder and not the memory.
 - A plain `..` in a URL never reaches the stem route, because HTTP clients collapse it. The route still looks every name up in the job's outputs.
 - `create_app()` imports `stem_web` for the page folder. Run the service with `src/stem-web` on the Python path, as `pyproject.toml` sets for the tests.
+- The upload route validates the options before it writes the file. `split()` validates them again, so a job that holds a bad option still fails before any model loads.
+- The model pool keys a separator by model file and preset. A preset separator is separate from a plain one.
 - Tests that start a worker use a poll interval of 0.01 seconds and wait up to 10 seconds for a job.

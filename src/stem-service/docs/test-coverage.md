@@ -8,6 +8,8 @@
 | `tests/test_api_read.py` | REQ-002 job and list routes with no server path. REQ-003 stem download, refused names, a missing file, and an unfinished job |
 | `tests/test_api_service.py` | REQ-004 default host and port, the first-run folders, the entry point, no login, worker shutdown, and a job from upload to download |
 | `tests/test_worker.py` | REQ-002 requeue on start. REQ-003 turn-taking, failure handling, idle wake-up, and one worker for each device. REQ-004 model reuse and per-job output folders |
+| `tests/test_api_options.py` | REQ-003 stored options, empty values, and a 422 that leaves no job and no file |
+| `tests/test_worker_options.py` | REQ-003 the pass-through to `split()`, a six-stem job, a failed job before any model loads, and the pool key |
 
 `src/stem-web/tests/test_page_serve.py` covers the `/` route and the `/static` mount.
 

@@ -39,9 +39,9 @@ A `Job` is a frozen dataclass with `id`, `status`, `input_path`, `full_stems`, `
 | `Worker.stop()` | Ends the thread after the current job |
 | `Worker.wake()` | Tells an idle worker to look for a job now |
 | `start_workers(store, devices, **options)` | Requeues interrupted jobs once, then starts one `Worker` for each device name |
-| `ModelPool(base_factory=None)` | Builds one separator for each model and keeps it loaded |
+| `ModelPool(base_factory=None)` | Builds one separator for each model and preset pair and keeps it loaded |
 
-The worker calls `split_func(input_path, out_dir, full_stems, pool.factory)`. The pool factory returns a `PooledSeparator` that loads each model on its first request only.
+The worker calls `split_func(input_path, out_dir, full_stems, pool.factory, **job.options)`. The pool factory returns a `PooledSeparator` that loads each model on its first request only.
 
 ## Settings
 
@@ -56,12 +56,14 @@ The worker calls `split_func(input_path, out_dir, full_stems, pool.factory)`. Th
 
 | Route | Meaning |
 |-------|---------|
-| `POST /jobs` | Takes a multipart `file` and an optional `full_stems`. Returns 201 with the job. Returns 415 for an extension other than `.wav`, `.flac`, `.mp3`, or `.m4a`. Returns 413 above the upload limit |
+| `POST /jobs` | Takes a multipart `file` and the optional fields `full_stems`, `model`, `ensemble_preset`, and `single_stem`. An empty option counts as unset. Returns 201 with the job. Returns 415 for an extension other than `.wav`, `.flac`, `.mp3`, or `.m4a`. Returns 413 above the upload limit. Returns 422 with a `detail` text for an option outside its allowlist |
 | `GET /` | Returns the page of stem-web as `text/html` |
 | `/static/{file}` | Returns a file of the page folder, or 404. The mount serves no other folder |
 | `GET /jobs` | Returns every job, oldest first |
 | `GET /jobs/{id}` | Returns one job, or 404 |
 | `GET /jobs/{id}/stems/{name}` | Returns one stem as `audio/wav`. Returns 404 for an unknown job or name, and 409 for a job that is not `done` |
+
+The route stores the set options as a JSON object in `jobs.options`. The allowlists live in `stem_core.separation`.
 
 A job in JSON holds `id`, `status`, `full_stems`, `stems`, `error`, `created_at`, `started_at`, and `finished_at`. `stems` lists file names, or holds `null` until the job is `done`. The JSON holds no server path. The full contract is `plan/_archive/0000010-http-api-2026-11-16/openapi-spec.yaml`.
 
