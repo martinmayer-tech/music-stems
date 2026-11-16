@@ -58,7 +58,7 @@ One wave. The feature ships when the observable condition passes.
 | Cloud | none |
 | Compute | docker |
 | CI | GitHub Actions |
-| Build target | docker |
+| Build target | local |
 
 ## Scope Boundaries
 

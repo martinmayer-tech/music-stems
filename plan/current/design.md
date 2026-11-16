@@ -25,7 +25,7 @@
 - Cost boundary: not constrained
 
 ## Engineering Layer
-- Stack: Dockerfile on `python:3.12-slim`, Python 3.12, FastAPI, pytest, ruff, GitHub Actions. Build target docker.
+- Stack: Dockerfile on `python:3.12-slim`, Python 3.12, FastAPI, pytest, ruff, GitHub Actions. Build target local. The tests run on the host, and the image build runs in Docker.
 - Components: `stem-service` owns the `Dockerfile`, `.dockerignore`, `compose.yaml`, `compose.gpu.yaml`, and their docs.
 - Data ownership: `stem-service` owns the `jobs` table. The data volume holds it.
 - Deployment: `docker compose up` on one host
@@ -33,10 +33,10 @@
 
 ## Component Paths
 - src/stem-service/
-- Dockerfile
-- compose.yaml
-- compose.gpu.yaml
-- .dockerignore
+- ./Dockerfile
+- ./compose.yaml
+- ./compose.gpu.yaml
+- ./.dockerignore
 - .github/workflows/
 - docs/
 - plan/
