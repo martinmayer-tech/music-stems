@@ -50,3 +50,9 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Bump: minor (chart row), planned version 0.8.0
 - Dependencies: python:3.12-slim, ffmpeg, audio-separator[gpu] (chart rows for step 8)
 - Schema: step 8 row is none
+- Scope Lock (happy path): A user runs docker compose up --build and the page opens on 127.0.0.1:8000. An upload ends done. [source: draft-accepted (initiative)]
+- Scope Lock (first-run path): A user starts with no volume and Docker creates both volumes. [source: draft-accepted (initiative)]
+- Scope Lock (error path): A user builds the GPU image with no NVIDIA toolkit and the first job fails with the engine's error. [source: draft-accepted (initiative)]
+- Scope Lock (cross-session continuity): A restart keeps the models and the finished jobs in the two volumes. [source: draft-accepted (initiative)]
+- Scope Lock complete. All four scenario paths captured.
+- Baseline: the clean-clone run is still going. The agent records it before P3 starts.
