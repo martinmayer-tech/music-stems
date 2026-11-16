@@ -120,10 +120,28 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-16T02:54:10Z` |
+| End | `2026-11-16T02:55:56Z` |
+| Wall clock | `1` |
+| Model tier | primary |
+| Skills loaded | ravintio-validate-and-accept |
+| Agents spawned | `0` |
+| MCP calls | `0` |
+| Parallel task batches | `0` |
+| Notes | none |
+- Docs edit pass: prose-check exit 0 on cycle 1, no subagent dispatched (2026-11-16T02:55:56Z)
+- Archetype gates: none installed
+- Verification: criteria verified by execution against a live service and in a browser (plan/current/verification-report.md)
+- Complete: P3 (2026-11-16T02:55:56Z)
+
+### P4: Ship
+
+| Field | Value |
+|-------|-------|
+| Start | `2026-11-16T02:55:56Z` |
 | End | `pending` |
 | Wall clock | `pending` |
 | Model tier | primary |
-| Skills loaded | ravintio-validate-and-accept |
+| Skills loaded | ravintio-ship |
 | Agents spawned | `0` |
 | MCP calls | `0` |
 | Parallel task batches | `0` |
