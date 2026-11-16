@@ -107,8 +107,8 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-16T00:22:07Z` |
-| End | `` |
-| Wall clock | `` |
+| End | `2026-11-16T00:22:27Z` |
+| Wall clock | `0` |
 | Model tier | primary |
 | Skills loaded | ravintio-validate-and-accept |
 | Agents spawned | `0` |
@@ -117,3 +117,4 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Notes | none |
 - Docs edit pass: prose-check exit 0 on cycle 1, no subagent dispatched (2026-11-16T00:22:07Z)
 - Archetype gates: none installed
+- Complete: P3 (2026-11-16T00:22:27Z)
