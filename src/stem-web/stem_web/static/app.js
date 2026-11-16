@@ -7,6 +7,30 @@ function hasUnfinishedJob(jobs) {
   return jobs.some((job) => UNFINISHED.includes(job.status));
 }
 
+function stemLinks(jobId, stems) {
+  return (stems || []).map((name) => ({
+    name: name,
+    url: "/jobs/" + encodeURIComponent(jobId) + "/stems/" + encodeURIComponent(name),
+  }));
+}
+
+function renderStem(link) {
+  const row = document.createElement("div");
+  row.className = "stem";
+  const label = document.createElement("span");
+  label.textContent = link.name;
+  const player = document.createElement("audio");
+  player.controls = true;
+  player.preload = "none";
+  player.setAttribute("src", link.url);
+  const download = document.createElement("a");
+  download.setAttribute("href", link.url);
+  download.setAttribute("download", link.name);
+  download.textContent = "Download " + link.name;
+  row.append(label, player, download);
+  return row;
+}
+
 function renderJob(job) {
   const item = document.createElement("li");
   item.className = "job job-" + job.status;
@@ -19,6 +43,9 @@ function renderJob(job) {
     error.className = "job-error";
     error.textContent = job.error;
     item.appendChild(error);
+  }
+  if (job.status === "done") {
+    stemLinks(job.id, job.stems).forEach((link) => item.appendChild(renderStem(link)));
   }
   return item;
 }
@@ -77,4 +104,8 @@ if (typeof document !== "undefined") {
   });
 
   refresh();
+}
+
+if (typeof module !== "undefined") {
+  module.exports = { stemLinks, hasUnfinishedJob };
 }
