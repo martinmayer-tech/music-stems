@@ -109,8 +109,10 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 - Done: U4-page (content, inline, none, 2026-11-16T02:26:20Z)
 - Tests run: REQ-004: src/stem-web/tests/test_page_options.py (2026-11-16T02:26:20Z)
 - In progress: U5-docs (2026-11-16T02:26:20Z)
+- RED: U5-docs (2026-11-16T02:56:39Z)
 - GREEN: U5-docs (2026-11-16T02:32:31Z)
 - Done: U5-docs (content, inline, none, 2026-11-16T02:32:31Z)
+- Deviation: the docs unit had no RED line when it ran. The agent wrote `test_option_docs.py` afterwards, and it failed on the commit before the docs and passed on HEAD (2026-11-16T02:56:39Z)
 - Baseline: 61 failures recorded in plan/current/baseline-failures.md. The P0 note said the run was still going, so the agent recorded it after the run ended (2026-11-16T02:32:31Z)
 - Tests run: full suite: 394 passed, 58 failed, 0 new, 61 inherited failures (2026-11-16T02:54:10Z)
 - Complete: P2 (2026-11-16T02:54:10Z)
@@ -125,7 +127,7 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Model tier | primary |
 | Skills loaded | ravintio-validate-and-accept |
 | Agents spawned | `0` |
-| MCP calls | `0` |
+| MCP calls | `3` |
 | Parallel task batches | `0` |
 | Notes | none |
 - Docs edit pass: prose-check exit 0 on cycle 1, no subagent dispatched (2026-11-16T02:55:56Z)
@@ -138,11 +140,28 @@ summary: "Working record of the pipeline run, maintained by the orchestrator."
 | Field | Value |
 |-------|-------|
 | Start | `2026-11-16T02:55:56Z` |
-| End | `pending` |
-| Wall clock | `pending` |
+| End | `2026-11-16T02:56:39Z` |
+| Wall clock | `0` |
 | Model tier | primary |
 | Skills loaded | ravintio-ship |
 | Agents spawned | `0` |
 | MCP calls | `0` |
 | Parallel task batches | `0` |
 | Notes | none |
+- Complete: P4 (2026-11-16T02:56:39Z)
+
+---
+
+## Summary (filled at ship, P4)
+
+| Metric | Value |
+|--------|-------|
+| Total phases completed | `5` |
+| Total wall clock | `45` |
+| Total agents spawned | `0` |
+| Total MCP calls | `3` |
+| Phases using parallelism | `0` |
+| Primary tier agent calls | `0` |
+| Cheaper tier agent calls | `0` |
+| Self-corrections | `2` |
+| Phases skipped | `none` |
