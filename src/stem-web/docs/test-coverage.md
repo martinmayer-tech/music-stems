@@ -1,0 +1,13 @@
+# stem-web: test coverage
+
+| Test | Covers |
+|------|--------|
+| `tests/test_smoke.py` | The `stem_web` package imports and holds a version |
+| `tests/test_page_serve.py` | REQ-001 `static_dir()`, the page at `/`, the files under `/static`, and refused paths |
+| `tests/test_page_script.py` | REQ-002 form fields and the upload call. REQ-003 the job list, the empty text, polling, and no `innerHTML` |
+| `tests/test_stem_links.py` | REQ-004 `stemLinks` under `node`, encoded names, and the done-only render |
+| `tests/test_page_options.py` | REQ-004 the three selects, their values against the allowlists, and `optionFields` under `node` |
+
+Tests check the served files and the API calls over HTTP. No test starts a browser.
+
+The script tests read `app.js` as text, so renaming a constant or a helper needs a test change. Pure logic such as `stemLinks` runs under `node`.

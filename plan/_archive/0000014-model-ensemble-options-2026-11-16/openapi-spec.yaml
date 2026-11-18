@@ -1,0 +1,62 @@
+openapi: 3.1.0
+info:
+  title: Stem service job options
+  version: 0.7.0
+  description: The three optional form fields that POST /jobs gains. The other fields and routes are in the step 5 spec.
+servers:
+  - url: http://127.0.0.1:8000
+paths:
+  /jobs:
+    post:
+      operationId: createJob
+      summary: Queue a job with optional model options
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file]
+              properties:
+                file:
+                  type: string
+                  format: binary
+                full_stems:
+                  type: boolean
+                  default: false
+                model:
+                  type: string
+                  description: The pass 2 model. An empty string means unset.
+                  enum:
+                    - htdemucs_ft.yaml
+                    - htdemucs_6s.yaml
+                    - htdemucs.yaml
+                ensemble_preset:
+                  type: string
+                  description: The pass 1 ensemble preset. An empty string means unset.
+                  enum:
+                    - instrumental_clean
+                    - instrumental_full
+                    - instrumental_balanced
+                    - instrumental_low_resource
+                    - vocal_balanced
+                    - vocal_clean
+                    - vocal_full
+                    - vocal_rvc
+                    - karaoke
+                single_stem:
+                  type: string
+                  description: The one stem to keep. An empty string means unset.
+                  enum: [vocals, instrumental, drums, bass, other, guitar, piano]
+      responses:
+        "201":
+          description: The job is queued.
+        "422":
+          description: An option holds a value outside its allowlist, or the stem needs another model. The detail text names the value.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string

@@ -1,0 +1,89 @@
+# RAVINTIO Component Manifest
+id: "stem-core"
+name: "Stem core"
+feature: "0000014-model-ensemble-options"
+version: "0.7.0"
+status: "active"
+type: "component-pack"
+domain: "stem-separation"
+summary: "Holds the two-pass separation function and the stems command."
+systemContext: "Called by stem-service to split audio and by the command line. Calls audio-separator."
+
+responsibilities:
+  - "Holds the two-pass separation function and the stems command."
+
+exceptions: []
+
+stack:
+  language: "python"
+  runtime: "python"
+  frontend: "none"
+  styling: "none"
+  componentLibrary: "none"
+  database: "none"
+  orm: "none"
+  testing: "pytest"
+  iac: "none"
+  cloud: "none"
+  compute: "none"
+  ci: "github-actions"
+
+contract:
+  inputs:
+    - "split(mix_path, out_dir, full_stems, separator_factory, model, ensemble_preset, single_stem)"
+    - "validate_options(model, ensemble_preset, single_stem)"
+    - "stems split, stems env, and stems models"
+  outputs:
+    - "A list of absolute WAV paths"
+    - "One output path per line on standard output"
+  consumedBy: []
+  consumes: []
+  breakingChangePolicy: "requires-adr"
+
+data:
+  ownsData: false
+  tables: []
+  schemaVersion: "0.0.0"
+
+scope:
+  inScope:
+    - "The two-pass split function with the pinned separation extra"
+    - "The model options and their allowlists"
+    - "The stems command with the split, env, and models subcommands"
+  outOfScope:
+    - "A pass 1 model choice, a free model name, and a model upload"
+  deferred:
+    - "none"
+
+risk:
+  level: "medium"
+  items:
+    - "The fake separator in unit tests can drift from the real one"
+    - "Packaging stem_core changes the CI install"
+    - "A preset may change the pass 1 stem names"
+
+quality:
+  testCoverage:
+    unit: 55
+    integration: 0
+    e2e: 0
+  techDebt: []
+  quirks:
+    - "tests/test_ci_job.py checks the CI workflow file"
+    - "Pass 2 renames its vocals stem and split() deletes it"
+    - "stems env falls back to cpu when torch is absent"
+    - "A preset replaces the pass 1 model, so pass 2 builds its own separator"
+
+pipeline:
+  templateVersion: "1.0.0"
+  featureMode: "greenfield"
+  domainKnowledgePath: "plan/_archive/0000014-model-ensemble-options-2026-11-16"
+
+metadata:
+  createdAt: "2026-11-15T20:57:56Z"
+  updatedAt: "2026-11-16T02:27:02Z"
+  createdBy: "agent"
+  lastModifiedBy: "agent"
+  skill: "ravintio-implement"
+  tool: "claude-code"
+  model: "claude-sonnet-5-5"

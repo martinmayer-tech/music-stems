@@ -1,0 +1,41 @@
+# One Python project for every component under src/.
+# The version below is a placeholder for tools. The product version lives in
+# docs/about.md and product.yml, and the merge queue sets it.
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "music-stems"
+version = "0.0.0"
+description = "A self-hosted stem separation service."
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "httpx"]
+# The HTTP API of stem-service.
+service = ["fastapi", "uvicorn", "python-multipart"]
+# The CPU build of the separation engine, at one exact version.
+separation = ["audio-separator[cpu]==0.48.0"]
+
+# The stems command lives in stem_core. Later steps add the other packages.
+[project.scripts]
+stems = "stem_core.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src/stem-core" }
+packages = ["stem_core"]
+
+[tool.pytest.ini_options]
+testpaths = ["src/stem-core/tests", "src/stem-service/tests", "src/stem-web/tests"]
+pythonpath = ["src/stem-core", "src/stem-service", "src/stem-web"]
+addopts = "--import-mode=importlib -m 'not slow'"
+markers = ["slow: a test that needs a real model, excluded from CI. Run it with -m slow"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+extend-exclude = ["ravintio-zero", "plan", ".claude"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

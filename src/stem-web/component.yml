@@ -1,0 +1,83 @@
+# RAVINTIO Component Manifest
+id: "stem-web"
+name: "Stem web"
+feature: "0000014-model-ensemble-options"
+version: "0.7.0"
+status: "active"
+type: "microfrontend"
+domain: "stem-separation"
+summary: "Holds the plain HTML, CSS, and JavaScript page that the API serves."
+systemContext: "Served by stem-service at / and under /static. Calls its HTTP API from the browser."
+
+responsibilities:
+  - "Holds the page: an upload form, a polling job list, and one player and one download link for each stem."
+  - "Names the page folder through static_dir()."
+
+exceptions:
+  - "The page has no browser test. A node test covers the stemLinks function only."
+
+stack:
+  language: "python"
+  runtime: "python"
+  frontend: "plain-html-css-js"
+  styling: "plain-css"
+  componentLibrary: "none"
+  database: "none"
+  orm: "none"
+  testing: "pytest"
+  iac: "none"
+  cloud: "none"
+  compute: "none"
+  ci: "github-actions"
+
+contract:
+  inputs:
+    - "GET /jobs and POST /jobs of stem-service, called with fetch"
+    - "GET /jobs/{id}/stems/{name} of stem-service, used as the source of each player and link"
+  outputs:
+    - "stem_web.static_dir(): the folder that holds index.html, app.js, and style.css"
+  consumedBy:
+    - "stem-service"
+  consumes: []
+  breakingChangePolicy: "requires-adr"
+
+data:
+  ownsData: false
+  tables: []
+  schemaVersion: "0.0.0"
+
+scope:
+  inScope:
+    - "The page files, static_dir(), an upload form with three model selects, a polling job list, and per-stem players and links"
+  outOfScope:
+    - "A build step, a UI library, browser automation, a login, cancel, and delete"
+  deferred:
+    - "none"
+
+risk:
+  level: "medium"
+  items:
+    - "Server text could run as markup. The script uses textContent only"
+    - "The DOM code has no browser test"
+
+quality:
+  testCoverage:
+    unit: 25
+    integration: 0
+    e2e: 0
+  techDebt: []
+  quirks: []
+
+pipeline:
+  templateVersion: "1.0.0"
+  featureMode: "greenfield"
+  domainKnowledgePath: "plan/_archive/0000014-model-ensemble-options-2026-11-16"
+
+metadata:
+  createdAt: "2026-11-15T20:57:56Z"
+  updatedAt: "2026-11-16T02:27:02Z"
+  createdBy: "agent"
+  lastModifiedBy: "agent"
+  skill: "ravintio-implement"
+  tool: "claude-code"
+  model: "claude-sonnet-5-5"

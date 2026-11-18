@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stem separation</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <h1>Stem separation</h1>
+
+    <form id="upload-form">
+      <label for="file">Audio file (.wav, .flac, .mp3, or .m4a)</label>
+      <input id="file" type="file" name="file" accept=".wav,.flac,.mp3,.m4a" required>
+      <label class="option">
+        <input type="checkbox" name="full_stems">
+        Full stems (drums, bass, and other, as well as vocals)
+      </label>
+      <label for="model">Pass 2 model (used with full stems)</label>
+      <select id="model" name="model">
+        <option value="">Default</option>
+        <option value="htdemucs_ft.yaml">htdemucs_ft.yaml</option>
+        <option value="htdemucs_6s.yaml">htdemucs_6s.yaml</option>
+        <option value="htdemucs.yaml">htdemucs.yaml</option>
+      </select>
+      <label for="ensemble_preset">Ensemble preset for vocals and instrumental</label>
+      <select id="ensemble_preset" name="ensemble_preset">
+        <option value="">Default</option>
+        <option value="instrumental_clean">instrumental_clean</option>
+        <option value="instrumental_full">instrumental_full</option>
+        <option value="instrumental_balanced">instrumental_balanced</option>
+        <option value="instrumental_low_resource">instrumental_low_resource</option>
+        <option value="vocal_balanced">vocal_balanced</option>
+        <option value="vocal_clean">vocal_clean</option>
+        <option value="vocal_full">vocal_full</option>
+        <option value="vocal_rvc">vocal_rvc</option>
+        <option value="karaoke">karaoke</option>
+      </select>
+      <label for="single_stem">Write one stem only</label>
+      <select id="single_stem" name="single_stem">
+        <option value="">Default</option>
+        <option value="vocals">vocals</option>
+        <option value="instrumental">instrumental</option>
+        <option value="drums">drums</option>
+        <option value="bass">bass</option>
+        <option value="other">other</option>
+        <option value="guitar">guitar</option>
+        <option value="piano">piano</option>
+      </select>
+      <button type="submit">Separate</button>
+      <p id="status" role="status"></p>
+    </form>
+
+    <h2>Jobs</h2>
+    <ul id="jobs"></ul>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
