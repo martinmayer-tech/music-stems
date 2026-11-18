@@ -2,7 +2,7 @@
 
 > Living document. Index of all ADRs across all features. Update it in place.
 
-Last updated: 0000016-docker-packaging
+Last updated: 0000029-add-audioread
 
 ## All architecture decision records
 
@@ -16,6 +16,7 @@ Last updated: 0000016-docker-packaging
 | [ADR-0006](adr/0006-plain-web-page-served-by-the-api.md) | Plain web page served by the API | 0000012-web-front-end | active | `stem-web` holds a build-free page and `stem-service` serves it at `/` |
 | [ADR-0007](adr/0007-allowlisted-model-options-in-stem-core.md) | Allowlisted model options in stem-core | 0000014-model-ensemble-options | active | `stem-core` holds the allowlists and checks each option before any model loads |
 | [ADR-0008](adr/0008-docker-packaging-of-the-service.md) | Docker packaging of the service | 0000016-docker-packaging | active | One image runs as a non-root user, two named volumes keep models and jobs, and compose publishes on loopback only |
+| [ADR-0009](adr/0009-pin-audioread-beside-the-engine.md) | Pin audioread beside the engine | 0000029-add-audioread | active | The `separation` extra and the `Dockerfile` install `audioread` at one exact version, and a test keeps them equal |
 
 ## Status definitions
 
