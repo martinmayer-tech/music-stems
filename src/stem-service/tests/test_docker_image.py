@@ -54,3 +54,17 @@ def test_req_001_compiler_builds_and_leaves_in_one_layer():
     layer = next(line for line in text.splitlines() if "pip install" in line)
     assert "apt-get install -y --no-install-recommends gcc libc6-dev" in layer
     assert "apt-get purge -y --auto-remove gcc libc6-dev" in layer
+
+
+def test_req_001_ac_2_layer_installs_audioread():
+    text = _dockerfile().replace("\\\n", " ")
+    layer = next(line for line in text.splitlines() if "pip install" in line)
+    assert '"audioread==${AUDIOREAD_VERSION}"' in layer
+
+
+def test_req_001_ac_3_audioread_pin_matches_pyproject():
+    pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+    pinned = re.search(r'"audioread==([0-9][^"]*)"', pyproject)
+    argument = re.search(r"^ARG AUDIOREAD_VERSION=(\S+)\s*$", _dockerfile(), re.MULTILINE)
+    assert pinned and argument
+    assert argument.group(1) == pinned.group(1)

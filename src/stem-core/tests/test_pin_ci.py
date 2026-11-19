@@ -32,3 +32,9 @@ def test_req_003_pytest_settings_register_the_slow_marker():
 
 def test_req_003_default_pytest_run_excludes_the_slow_marker():
     assert 'addopts = "--import-mode=importlib -m \'not slow\'"' in PYPROJECT
+
+
+def test_req_001_ac_1_separation_extra_pins_audioread_exactly():
+    extra = re.search(r"^separation\s*=\s*(.*)$", PYPROJECT, re.MULTILINE)
+    assert extra, "the separation extra must exist"
+    assert re.search(r'"audioread==[0-9][^"]*"', extra.group(1))

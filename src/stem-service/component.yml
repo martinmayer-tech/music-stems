@@ -1,8 +1,8 @@
 # RAVINTIO Component Manifest
 id: "stem-service"
 name: "Stem service"
-feature: "0000016-docker-packaging"
-version: "0.8.0"
+feature: "0000029-add-audioread"
+version: "0.8.1"
 status: "active"
 type: "microservice"
 domain: "stem-separation"
@@ -67,7 +67,7 @@ risk:
     - "A real Separator may ignore a changed output_dir"
     - "A restart during a job leaves it running until recover() runs"
     - "The service has no login, so a public STEMS_HOST exposes an open upload route"
-    - "A job fails in the image until audioread joins the dependencies (backlog 0000023)"
+    - "The audioread pin appears in pyproject.toml and the Dockerfile, and a test keeps them equal"
     - "The container binds to all interfaces, so a compose port without 127.0.0.1 exposes the same route"
 
 quality:
@@ -90,7 +90,7 @@ pipeline:
 
 metadata:
   createdAt: "2026-11-15T20:57:56Z"
-  updatedAt: "2026-11-16T03:12:17Z"
+  updatedAt: "2026-11-18T07:24:28Z"
   createdBy: "agent"
   lastModifiedBy: "agent"
   skill: "ravintio-implement"

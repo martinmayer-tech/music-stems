@@ -11,10 +11,10 @@
 | `tests/test_api_options.py` | REQ-003 stored options, empty values, and a 422 that leaves no job and no file |
 | `tests/test_worker_options.py` | REQ-003 the pass-through to `split()`, a six-stem job, a failed job before any model loads, and the pool key |
 
-| `tests/test_docker_image.py` | REQ-001 the base image, FFmpeg, the extra argument, the pin, the runtime settings, the compiler layer, and the `.dockerignore` entries |
+| `tests/test_docker_image.py` | REQ-001 the base image, FFmpeg, the extra argument, the pin, the runtime settings, the compiler layer, and the `.dockerignore` entries. REQ-001 of feature 0000029: the `audioread` install and its pin |
 | `tests/test_compose.py` | REQ-002 the loopback port, both volumes, the build argument, and the GPU override |
 | `tests/test_ci_docker.py` | REQ-003 the CI job builds the CPU image and pushes and runs nothing |
-| `tests/test_docker_docs.py` | The purpose doc, the decisions index, and the manifest name the Docker files |
+| `tests/test_docker_docs.py` | The purpose doc, the decisions index, and the manifest name the Docker files. The docs name the `audioread` pin and no longer describe the fault |
 
 `src/stem-web/tests/test_page_serve.py` covers the `/` route and the `/static` mount.
 

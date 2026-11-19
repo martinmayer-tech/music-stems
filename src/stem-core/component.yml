@@ -1,8 +1,8 @@
 # RAVINTIO Component Manifest
 id: "stem-core"
 name: "Stem core"
-feature: "0000014-model-ensemble-options"
-version: "0.7.0"
+feature: "0000029-add-audioread"
+version: "0.8.1"
 status: "active"
 type: "component-pack"
 domain: "stem-separation"
@@ -81,7 +81,7 @@ pipeline:
 
 metadata:
   createdAt: "2026-11-15T20:57:56Z"
-  updatedAt: "2026-11-16T02:27:02Z"
+  updatedAt: "2026-11-18T07:24:28Z"
   createdBy: "agent"
   lastModifiedBy: "agent"
   skill: "ravintio-implement"

@@ -5,6 +5,6 @@
 - HTTP API: `fastapi`, `uvicorn`, and `python-multipart`, from the `service` extra in the root `pyproject.toml`.
 - Development: `pytest`, `ruff`, and `httpx` (the test client), from the `dev` extra in the root `pyproject.toml`.
 - `audio-separator` comes in through stem-core and loads on the first real job only.
-- Image: `python:3.12-slim` and the Debian package `ffmpeg`. The `AUDIO_SEPARATOR_VERSION` build argument repeats the pin of the `separation` extra, and `tests/test_docker_image.py` keeps the two equal.
+- Image: `python:3.12-slim` and the Debian package `ffmpeg`. The `AUDIO_SEPARATOR_VERSION` build argument repeats the pin of the `separation` extra, and `tests/test_docker_image.py` keeps the two equal. The `AUDIOREAD_VERSION` build argument repeats the `audioread` pin of the same extra in the same way (ADR-0009).
 - Build only: the Debian packages `gcc` and `libc6-dev`, which the `pip install` layer adds and removes, because `diffq` has no wheel.
 - GPU image: `audio-separator[gpu]`, which the build argument `STEMS_EXTRA=gpu` selects, and the NVIDIA container toolkit on the host.

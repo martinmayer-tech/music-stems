@@ -6,6 +6,9 @@ FROM python:3.12-slim
 ARG STEMS_EXTRA=cpu
 # Keep this pin equal to the separation extra in pyproject.toml. A test checks it.
 ARG AUDIO_SEPARATOR_VERSION=0.48.0
+# audio-separator imports audioread and does not install it (ADR-0009).
+# Keep this pin equal to the separation extra in pyproject.toml. A test checks it.
+ARG AUDIOREAD_VERSION=3.1.0
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ffmpeg \
@@ -22,7 +25,7 @@ COPY src ./src
 # The same layer installs gcc and libc6-dev and removes them, so the compiler stays out of the image.
 RUN apt-get update \
     && apt-get install -y --no-install-recommends gcc libc6-dev \
-    && pip install --no-cache-dir ".[service]" "audio-separator[${STEMS_EXTRA}]==${AUDIO_SEPARATOR_VERSION}" \
+    && pip install --no-cache-dir ".[service]" "audio-separator[${STEMS_EXTRA}]==${AUDIO_SEPARATOR_VERSION}" "audioread==${AUDIOREAD_VERSION}" \
     && apt-get purge -y --auto-remove gcc libc6-dev \
     && rm -rf /var/lib/apt/lists/*
 

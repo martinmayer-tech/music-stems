@@ -2,7 +2,7 @@
 
 > Living document. Reflects current system state.
 
-Last updated: 0000016-docker-packaging
+Last updated: 0000029-add-audioread
 
 ## System summary
 
@@ -42,6 +42,7 @@ flowchart LR
 | pytest | PyPI, development | stem-core, stem-service, stem-web |
 | ruff | PyPI, development | stem-core, stem-service, stem-web |
 | audio-separator[cpu]==0.48.0 | PyPI, runtime, `separation` extra | stem-core |
+| audioread==3.1.0 | PyPI, runtime, `separation` extra and the image | stem-core, stem-service |
 | fastapi, uvicorn, python-multipart | PyPI, runtime, `service` extra | stem-service |
 | httpx | PyPI, development | stem-service, stem-web |
 | python:3.12-slim and ffmpeg | Docker base image and Debian package, runtime | stem-service |
@@ -57,3 +58,4 @@ flowchart LR
 - ADR-0006: `stem-web` holds a build-free HTML, CSS, and JavaScript page. `stem-service` serves it at `/` and under `/static`.
 - ADR-0007: `stem-core` holds the allowlists for the model options and checks them first. The command, the API, and the worker all call that check, so no model loads for a bad value.
 - ADR-0008: `stem-service` owns one `Dockerfile` and two compose files. The container binds to all interfaces, and compose publishes on `127.0.0.1` only. Two named volumes keep the models and the jobs.
+- ADR-0009: the `separation` extra and the `Dockerfile` pin `audioread` at one version, because the engine imports it and does not install it.
